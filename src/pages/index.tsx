@@ -1,8 +1,9 @@
 import { Text } from "@chakra-ui/react"
+import { Header } from "../components/Header"
 
 function Home(){
   return (
-    <Text p="2">Hello, world!</Text>
+    <Header/>
   )
 }
 
