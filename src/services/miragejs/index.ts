@@ -1,7 +1,7 @@
 import { ActiveModelSerializer, createServer, Model, Response } from "miragejs"
-import games from "./games.json"
+import products from "./products.json"
 
-interface Game{
+interface Product{
   id: string,
   name: string,
   price: number,
@@ -16,14 +16,14 @@ function mirageServer() {
     },
 
     models: {
-      game: Model.extend<Partial<Game>>({}),
+      product: Model.extend<Partial<Product>>({}),
     },
 
     seeds(server) {
-      games.forEach(game => {
-        const { id, name, price, score, image } = game
+      products.forEach(product => {
+        const { id, name, price, score, image } = product
 
-        server.create("game", {
+        server.create("product", {
           id: String(id),
           name,
           price,
@@ -37,10 +37,10 @@ function mirageServer() {
       this.namespace = "api"
       this.timing = 750
 
-      this.get("/games", (schema) => {
-        const games = schema.all("game").models
+      this.get("/products", (schema) => {
+        const products = schema.all("product").models
 
-        return new Response(200, {}, { games })
+        return new Response(200, {}, { products })
       })
 
       this.namespace = ""

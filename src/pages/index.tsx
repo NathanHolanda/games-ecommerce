@@ -22,7 +22,7 @@ function Home(){
             <Text mt="2">Aqui você pode encontrar os melhores jogos  eletrônicos pelos menores preços.</Text>
           </Box>
 
-          <Link href="/jogos" passHref>
+          <Link href="/produtos" passHref>
             <ChakraLink _hover={{textDecoration: "none"}}>
               <Text
                 mt="4"

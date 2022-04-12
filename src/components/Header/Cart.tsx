@@ -13,6 +13,8 @@ function Cart(){
                         right="-1"
                         width="5"
                         height="5"
+                        fontWeight="400"
+                        fontSize="sm"
                         textAlign="center"
                         background="blue.600"
                         zIndex={2}

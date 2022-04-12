@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react"
 import { Layout } from "../../components/Layout"
 
-function Game(){
+function Product(){
     return (
         <Layout>
             <Box></Box>
@@ -9,4 +9,4 @@ function Game(){
     )
 }
 
-export default Game
+export default Product
