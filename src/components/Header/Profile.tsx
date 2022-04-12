@@ -10,7 +10,7 @@ function Profile(){
     return isUserLoggedIn ? (
         <Flex>
             <Box mr="2">
-                <Text fontSize="md">Nathan Holanda</Text>
+                <Text fontSize="md" fontWeight="500">Nathan Holanda</Text>
                 <Text
                     color="gray.500"
                     fontSize="sm"

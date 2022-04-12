@@ -1,4 +1,5 @@
 import { ActiveModelSerializer, createServer, Model, Response } from "miragejs"
+import { runInThisContext } from "vm"
 import products from "./products.json"
 
 interface Product{
@@ -49,6 +50,8 @@ function mirageServer() {
 
         return new Response(200, {}, { products })
       })
+
+      this.get("/products/:id")
 
       this.namespace = ""
       this.passthrough()

@@ -11,7 +11,7 @@ function Footer(){
           maxWidth={1200}
           textAlign="center"
         >
-            <Text fontSize="md">
+            <Text fontSize="md" fontWeight="500">
                 Jogador Karo &copy; { new Date().getFullYear() }
             </Text>
             <Text fontSize="xs" color="gray.500">Made by Nathan Holanda</Text>

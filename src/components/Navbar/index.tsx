@@ -11,7 +11,6 @@ function Navbar(){
           pb="4"
           borderBottom="1px solid"
           borderColor="yellow.400"
-
         >
             <NavbarLink icon={BiHome} link="/" text="Home"/>
             <NavbarLink icon={BiGame} link="/produtos" text="Produtos"/>
