@@ -14,7 +14,7 @@ function SearchBox(){
                 pl="2"
                 width={300}
             />
-            <Label htmlFor="search-box" cursor="pointer">
+            <Label htmlFor="search-box" cursor="pointer" mt="3">
                 <Icon as={BiSearchAlt2} fontSize="xl" color="yellow.400"/>
             </Label>
         </Flex>

@@ -11,7 +11,8 @@ function Logo(){
 
             return (
                 <Text
-                color={`${logoColors[count]}`}
+                    key={index}
+                    color={`${logoColors[count]}`}
                 >
                     {letter}
                 </Text>
