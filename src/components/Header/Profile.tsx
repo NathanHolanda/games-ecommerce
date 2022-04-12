@@ -1,10 +1,15 @@
-import { Avatar, Box, Text } from "@chakra-ui/react";
+import { Avatar, Box, Button, Flex, Icon, Text } from "@chakra-ui/react";
+import { useState } from "react";
+import { BsGithub } from "react-icons/bs"
 
 
 function Profile(){
-    return (
-        <>
-            <Box mr="3">
+    const [ isUserLoggedIn, setIsUserLoggedIn ] = useState<boolean>(false)
+
+    
+    return isUserLoggedIn ? (
+        <Flex>
+            <Box mr="2">
                 <Text fontSize="md">Nathan Holanda</Text>
                 <Text
                     color="gray.500"
@@ -17,7 +22,26 @@ function Profile(){
                 name="Nathan Holanda"
                 src="https://github.com/nathanholanda.png"
             />
-        </>
+        </Flex>
+    ) : (
+        <Button 
+            colorScheme="transparent"
+            fontWeight="400"
+            border="2px solid"
+            borderColor= "yellow.400"
+            color= "yellow.400"
+            py={5}
+            _hover={{
+                borderColor: "yellow.100",
+                color: "yellow.100"
+            }}
+            borderRadius={20}
+        >
+            <Box mr="2">
+                <Text fontSize="lg">Faça login com o GitHub</Text>
+            </Box>
+            <Icon fontSize="3xl" as={BsGithub} />
+        </Button>
     )
 }
 

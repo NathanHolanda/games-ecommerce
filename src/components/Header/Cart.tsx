@@ -19,7 +19,7 @@ function Cart(){
             <IconButton
                 fontSize="4xl"
                 mt="1"
-                ml="3"
+                ml="5"
                 icon={<BiCartAlt/>}
                 aria-label="Carrinho de compras"
                 colorScheme="transparent"

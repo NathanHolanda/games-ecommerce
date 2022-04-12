@@ -9,15 +9,13 @@ function Header(){
 
     return (
         <Box
-            maxWidth={1200}
             w="100%"
-            margin="0 auto"
+            p="2"
             borderBottom="1px solid"
             borderColor="yellow.400"
         >
             <Flex
                 as="header"
-                p="3"
                 align="center"
                 justify="space-between"
             >
