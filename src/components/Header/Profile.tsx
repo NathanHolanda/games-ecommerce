@@ -4,7 +4,7 @@ import { BsGithub } from "react-icons/bs"
 
 
 function Profile(){
-    const [ isUserLoggedIn, setIsUserLoggedIn ] = useState<boolean>(false)
+    const [ isUserLoggedIn, setIsUserLoggedIn ] = useState<boolean>(true)
 
     
     return isUserLoggedIn ? (
