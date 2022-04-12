@@ -10,7 +10,7 @@ interface LayoutProps{
 
 function Layout({ children }: LayoutProps){
     return (
-        <Box h="100%" p="3" maxWidth={1200} margin="0 auto">
+        <Box minH="100vh" p="3" maxWidth={1200} margin="0 auto">
             <Header/>
             <Navbar/>
             { children }
