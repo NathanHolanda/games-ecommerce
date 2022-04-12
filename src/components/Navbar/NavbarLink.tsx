@@ -1,14 +1,17 @@
 import { Flex, Icon, Text, Link as ChakraLink, As } from "@chakra-ui/react";
 import Link from "next/link"
+import { useRouter } from "next/router";
 
 interface LinkProps{
     icon: As
     link: string
     text: string
-    isCurrent?: boolean
 }
 
-function NavbarLink({ icon, link, text, isCurrent }: LinkProps){
+function NavbarLink({ icon, link, text }: LinkProps){
+    const router = useRouter()
+    const isCurrent = router.asPath === link ? true : false
+
     return (
         <Link href={link} passHref>
             <ChakraLink

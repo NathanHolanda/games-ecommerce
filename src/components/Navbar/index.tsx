@@ -1,6 +1,6 @@
 import { Flex } from "@chakra-ui/react";
 import { BiHome, BiGame, BiHistory } from "react-icons/bi"
-import { NavbarLink } from "./Link";
+import { NavbarLink } from "./NavbarLink";
 
 function Navbar(){
     return(
@@ -13,7 +13,7 @@ function Navbar(){
           borderColor="yellow.400"
 
         >
-            <NavbarLink icon={BiHome} link="/" text="Home" isCurrent/>
+            <NavbarLink icon={BiHome} link="/" text="Home"/>
             <NavbarLink icon={BiGame} link="/produtos" text="Produtos"/>
             <NavbarLink icon={BiHistory} link="/historico" text="Histórico"/>
         </Flex>
