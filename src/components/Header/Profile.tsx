@@ -20,6 +20,7 @@ function Profile(){
             </Box>
             <Avatar
                 name="Nathan Holanda"
+                title="Nathan Holanda"
                 src="https://github.com/nathanholanda.png"
             />
         </Flex>

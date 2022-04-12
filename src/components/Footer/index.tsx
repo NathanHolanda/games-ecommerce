@@ -14,7 +14,7 @@ function Footer(){
             <Text fontSize="md">
                 Jogador Karo &copy; { new Date().getFullYear() }
             </Text>
-            <Text fontSize="xs" color="gray.400">Made by Nathan Holanda</Text>
+            <Text fontSize="xs" color="gray.500">Made by Nathan Holanda</Text>
         </Box>
     )
 }

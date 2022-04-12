@@ -37,8 +37,15 @@ function mirageServer() {
       this.namespace = "api"
       this.timing = 750
 
-      this.get("/products", (schema) => {
+      this.get("/products", (schema, request) => {
+        const { page = 1 } = request.queryParams
+        const perPage = 3 
+
+        const pageStart = (Number(page) - 1) * Number(perPage)
+        const pageEnd = Number(pageStart) + Number(perPage)
+
         const products = schema.all("product").models
+        .slice(pageStart, pageEnd)
 
         return new Response(200, {}, { products })
       })
