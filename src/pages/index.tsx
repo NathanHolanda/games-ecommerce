@@ -1,10 +1,16 @@
-import { Box, Link, Text, textDecoration } from "@chakra-ui/react"
+import { Box, Link, Text, Flex } from "@chakra-ui/react"
 import { Layout } from "../components/Layout"
 
 function Home(){
   return (
     <Layout>
-      <Box textAlign="center" mt="12">
+      <Flex
+        h={600}
+        direction="column"
+        justify="center"
+        as="main"
+        textAlign="center"
+      >
         <Box fontSize="xl">
           <Text>Seja bem-vindo(a) à loja online da Jogador Karo! <Text as="span" fontSize="4xl">🎮</Text></Text>
           <Text mt="2">Aqui você pode encontrar os melhores jogos  eletrônicos pelos melhores preços.</Text>
@@ -22,8 +28,7 @@ function Home(){
             Press Start
           </Text>
         </Link>
-        
-      </Box>
+      </Flex>
     </Layout>
   )
 }

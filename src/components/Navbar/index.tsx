@@ -5,6 +5,7 @@ import { Link } from "./Link";
 function Navbar(){
     return(
         <Flex
+          as="nav"
           justify="center"
           mt="4"
           pb="4"
