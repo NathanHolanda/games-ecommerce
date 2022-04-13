@@ -1,4 +1,5 @@
 import { Box, Flex, IconButton, Image, Text } from "@chakra-ui/react"
+import ReactStars from "react-rating-stars-component"
 import Head from "next/head"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
@@ -70,18 +71,26 @@ function Product(){
                                             title={product.name}
                                         />
                                     </Flex>
-                                    <Box mt="4">
+                                    <Flex direction="column" align="center" mt="4">
                                         <Text
                                             fontSize="xl"
                                             color="yellow.400"
                                             fontWeight="500"
                                         >{product.name}</Text>
+                                        <ReactStars
+                                            count={5}
+                                            value={Math.ceil((product.score * 5)/400)}
+                                            edit={true}
+                                            /* onChange={ratingChanged} */
+                                            size={24}
+                                            activeColor="#B7791F"
+                                        />
                                         <Text
                                             fontSize="md"
                                             textAlign="center"
                                             color="gray.400"
                                         >
-                                            Preço: {
+                                            {
                                                 Intl.NumberFormat("pt-BR", {
                                                     style: "currency",
                                                     currency: "BRL"
@@ -90,13 +99,13 @@ function Product(){
                                         </Text>
                                         <IconButton
                                             colorScheme="yellow"
-                                            mt="5"
+                                            mt="8"
                                             aria-label="Adicionar ao carrinho"
                                             fontSize="4xl"
-                                            p="4"
+                                            p="6"
                                             icon={<BsCartPlus/>}
                                         />
-                                    </Box>
+                                    </Flex>
                             </Flex> 
                         ) : error ?
                         (

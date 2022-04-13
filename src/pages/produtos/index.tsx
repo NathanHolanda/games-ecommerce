@@ -1,4 +1,5 @@
 import { Box, SimpleGrid, Image, Flex, Text, keyframes, Button, Stack } from "@chakra-ui/react"
+import ReactStars from "react-rating-stars-component"
 import Link from "next/link"
 import Head from "next/head"
 import { useEffect, useState } from "react"
@@ -22,8 +23,6 @@ function Products(){
             .then(products => setProducts(products))
     }, [])
 
-    console.log(products)
-
     const loadingKeyframe = keyframes`
         0%{ color: #E2E8F0 }
         50%{ color: #718096 }
@@ -38,7 +37,7 @@ function Products(){
             </Head>
             <Layout>
                 <Stack
-                  spacing="8"
+                  spacing="14"
                   h={600}
                   display="flex"
                   direction="column"
@@ -55,53 +54,61 @@ function Products(){
                                     h={300}
                                 >
                                 {     
-                                        products.map(product => {
-                                            return (
-                                                <Link href={`/produtos/${product.id}`}>
-                                                    <Flex
-                                                        direction="column"
-                                                        align="center"
-                                                        backgroundColor="gray.800"
-                                                        py="5"
-                                                        px="2"
-                                                        borderRadius={5}
-                                                        cursor="pointer"
-                                                        transition="transform 0.2s"
-                                                        _hover={{
-                                                            transform: "scale(1.1, 1.1)"
-                                                        }}
-                                                    >
-                                                        <Flex justify="center">
-                                                            <Image
-                                                            src={product.image}
-                                                            alt={product.name}
-                                                            title={product.name}
-                                                            />
-                                                        </Flex>
-                                                        <Box mt="4">
-                                                            <Text
-                                                            fontSize="xl"
-                                                            color="yellow.400"
-                                                            fontWeight="500"
-                                                            >{product.name}</Text>
-                                                            <Text
-                                                                fontSize="md"
-                                                                textAlign="center"
-                                                                color="gray.400"
-                                                            >
-                                                                Preço: {
-                                                                    Intl.NumberFormat("pt-BR", {
-                                                                        style: "currency",
-                                                                        currency: "BRL"
-                                                                    }).format(product.price)
-                                                                }
-                                                            </Text>
-                                                        </Box>
+                                    products.map(product => {
+                                        const score = Math.ceil((product.score * 5)/400)
+                                        const price = Intl.NumberFormat("pt-BR", {
+                                            style: "currency",
+                                            currency: "BRL"
+                                        }).format(product.price)
+
+                                        return (
+                                            <Link href={`/produtos/${product.id}`}>
+                                                <Flex
+                                                    direction="column"
+                                                    align="center"
+                                                    backgroundColor="gray.800"
+                                                    py="5"
+                                                    px="2"
+                                                    borderRadius={5}
+                                                    cursor="pointer"
+                                                    transition="transform 0.2s"
+                                                    _hover={{
+                                                        transform: "scale(1.1, 1.1)"
+                                                    }}
+                                                >
+                                                    <Flex justify="center">
+                                                        <Image
+                                                        src={product.image}
+                                                        alt={product.name}
+                                                        title={product.name}
+                                                        />
                                                     </Flex>
-                                                </Link>
-                                            )
-                                        }) 
-                                    }
+                                                    <Box mt="4">
+                                                        <Text
+                                                        fontSize="xl"
+                                                        color="yellow.400"
+                                                        fontWeight="500"
+                                                        >{product.name}</Text>
+                                                        <ReactStars
+                                                            count={5}
+                                                            value={score}
+                                                            edit={false}
+                                                            /* onChange={ratingChanged} */
+                                                            size={24}
+                                                            activeColor="#B7791F"
+                                                        />
+                                                        <Text
+                                                            fontSize="md"
+                                                            ml="1"
+                                                            /* textAlign="center" */
+                                                            color="gray.400"
+                                                        >{price}</Text>
+                                                    </Box>
+                                                </Flex>
+                                            </Link>
+                                        )
+                                    }) 
+                                }
                                 </SimpleGrid>
                                 <Flex justify="center">
                                     <Button
