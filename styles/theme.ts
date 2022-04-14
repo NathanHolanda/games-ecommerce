@@ -6,6 +6,14 @@ const theme = extendTheme({
         body: "Roboto, Arial, sans-serif"
     },
 
+    input:{
+        focusBorderColor: "yellow",
+    },
+
+    button:{
+        focusBorderColor: "yellow",
+    },
+
     styles: {
         global: {
             body: {

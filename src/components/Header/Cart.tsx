@@ -1,8 +1,11 @@
 import { Box, Button, IconButton, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import { BiCartAlt } from "react-icons/bi";
+import { useCart } from "../../contexts/useCart";
 
 function Cart(){
+    const { products } = useCart()
+
     return (
         <Link href="/carrinho">
             <Button colorScheme="transparent">
@@ -19,7 +22,7 @@ function Cart(){
                         background="blue.600"
                         zIndex={2}
                     >
-                        <Text lineHeight="5">3</Text>
+                        <Text lineHeight="5">{ products.length }</Text>
                     </Box>
                     <IconButton
                         fontSize="4xl"
