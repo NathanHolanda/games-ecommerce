@@ -40,7 +40,7 @@ function mirageServer() {
 
       this.get("/products", (schema, request) => {
         const { page = 1 } = request.queryParams
-        const perPage = 3 
+        const perPage = 4 
 
         const pageStart = (Number(page) - 1) * Number(perPage)
         const pageEnd = Number(pageStart) + Number(perPage)

@@ -37,19 +37,18 @@ function Products(){
             </Head>
             <Layout>
                 <Stack
-                  spacing="14"
+                  as="main"
+                  spacing="20"
                   h={600}
                   display="flex"
-                  direction="column"
                   justify="center"
                 >
                     {
                         products ? (
                             <>
                                 <SimpleGrid
-                                    as="main"
-                                    minChildWidth={100}
-                                    columns={3}
+                                    minChildWidth={80}
+                                    columns={4}
                                     spacing={10}
                                     h={300}
                                 >
@@ -67,14 +66,16 @@ function Products(){
                                                     direction="column"
                                                     align="center"
                                                     backgroundColor="gray.800"
-                                                    py="5"
-                                                    px="2"
+                                                    py="4"
+                                                    px="4"
+                                                    maxH={500}
                                                     borderRadius={5}
                                                     cursor="pointer"
                                                     transition="transform 0.2s"
                                                     _hover={{
                                                         transform: "scale(1.1, 1.1)"
                                                     }}
+                                                    key={product.id}
                                                 >
                                                     <Flex justify="center">
                                                         <Image

@@ -24,7 +24,7 @@ function Product(){
     const router = useRouter()
     const { id } = router.query
 
-    const { products, handleChangeChart } = useCart()
+    const { products, handleChangeCart } = useCart()
 
     useEffect(() => {
         setTimeout(() => {
@@ -61,12 +61,12 @@ function Product(){
                                 align="center"
                                 backgroundColor="gray.800"
                                 m="0 auto"
-                                py="5"
+                                py="6"
                                 px="2"
                                 boxSize="md"
                                 borderRadius={5}
-                                cursor="pointer"
                                 transition="transform 0.2s"
+                                maxW={350}
                             >
                                     <Flex justify="center" boxSize="md">
                                         <Image
@@ -82,7 +82,7 @@ function Product(){
                                             fontWeight="500"
                                         >{product.name}</Text>
                                         <Flex align="center" justify="space-between">
-                                            <Box>
+                                            <Box mr="4">
                                                 <ReactStars
                                                     count={5}
                                                     value={Math.ceil((product.score * 5)/400)}
@@ -108,7 +108,6 @@ function Product(){
                                             <NumberInput
                                               size='sm'
                                               maxW={16}
-                                              maxH={8}
                                               defaultValue={1}
                                               min={1}
                                               value={productQuantity}
@@ -117,18 +116,25 @@ function Product(){
                                                 <NumberInputField
                                                     backgroundColor="gray.600"
                                                     color="gray.200"
-                                                    borderColor="gray.200"
+                                                    borderColor="gray.500"
+                                                    h="32px"
                                                 />
-                                                <NumberInputStepper>
+                                                <NumberInputStepper borderColor="gray.500" color="gray.200">
                                                     <NumberIncrementStepper
-                                                        bg='green.800'
-                                                        _active={{ bg: 'green.800' }}
-                                                        children='+'
+                                                        bg="green.800"
+                                                        _active={{ bg: "green.800" }}
+                                                        children="+"
+                                                        fontSize="md"
+                                                        h={15}
+                                                        borderColor="gray.500"
                                                     />
                                                     <NumberDecrementStepper
-                                                        bg='red.800'
-                                                        _active={{ bg: 'red.800' }}
-                                                        children='-'
+                                                        bg="red.800"
+                                                        _active={{ bg: "red.800" }}
+                                                        children="-"
+                                                        fontSize="md"
+                                                        h={15}
+                                                        borderColor="gray.500"
                                                     />
                                                 </NumberInputStepper>
                                             </NumberInput>
@@ -141,7 +147,7 @@ function Product(){
                                             p="6"
                                             icon={<BsCartPlus/>}
                                             onClick={() => {
-                                                handleChangeChart({
+                                                handleChangeCart({
                                                     id: product.id,
                                                     name: product.name,
                                                     price: product.price,

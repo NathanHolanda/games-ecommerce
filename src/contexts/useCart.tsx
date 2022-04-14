@@ -1,4 +1,4 @@
-import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from "react"
+import { createContext, ReactNode, useContext, useState } from "react"
 
 interface Product{
     id: string
@@ -15,7 +15,8 @@ interface CartContextProviderProps{
 
 interface Cart{
     products: Product[],
-    handleChangeChart: (product: Product) => void
+    handleChangeCart: (product: Product) => void,
+    handleRemoveProduct: (id: number) => void
 }
 
 const Context = createContext<Cart>({} as Cart)
@@ -26,10 +27,10 @@ function CartContextProvider({ children }: CartContextProviderProps){
     return (
         <Context.Provider value={{
             products,
-            handleChangeChart(product: Product){
-                const isProductOnCart = products.some(item => item.id === product.id)
+            handleChangeCart(product: Product){
+                const isProductInCart = products.some(item => item.id === product.id)
 
-                if(isProductOnCart){
+                if(isProductInCart){
                     const newProducts = products.map(item => {
                         if(item.id === product.id){
                             item.quantity = product.quantity
@@ -51,6 +52,28 @@ function CartContextProvider({ children }: CartContextProviderProps){
                             quantity: product.quantity
                         }   
                     ])
+            },
+            handleRemoveProduct(id: number){
+                let arrayId = 0
+
+                const isProductInCart = products.some((product, index) => {
+                    if(Number(product.id) === id){
+                        arrayId = index
+                        return true
+                    }
+
+                    return false
+                })
+
+                if(isProductInCart && products.length > 1){
+                    const newProducts = products.splice(arrayId, 1)
+
+                    setProducts(newProducts)
+
+                    return
+                }
+
+                setProducts([])
             }
         }}>
             { children }
