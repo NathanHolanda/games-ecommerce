@@ -1,5 +1,13 @@
 import {extendTheme} from '@chakra-ui/react'
 
+const focusBorderColor = {
+    baseStyle: {
+        _focus: {
+            boxShadow: "0 0 0 3px #975A16"
+        }
+    }
+}
+
 const theme = extendTheme({
     fonts: {
         heading: "Roboto, Arial, sans-serif",
@@ -14,6 +22,14 @@ const theme = extendTheme({
                 color: "gray.200"
             }
         }
+    },
+    
+    components: {
+        Link: focusBorderColor,
+        Button: focusBorderColor,
+        ModalCloseButton: focusBorderColor,
+        IconButton: focusBorderColor,
+        Input: focusBorderColor
     }
 })
 

@@ -1,4 +1,4 @@
-import { Box, Flex, SimpleGrid, Text, Image, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, IconButton, Icon, Button, useDisclosure, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalOverlay, ModalHeader } from "@chakra-ui/react"
+import { Box, Flex, SimpleGrid, Text, Image, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, IconButton, Icon, Button, useDisclosure, Modal, ModalBody, ModalContent, ModalFooter, ModalOverlay, ModalHeader } from "@chakra-ui/react"
 import Head from "next/head"
 import { Layout } from "../components/Layout"
 import { useCart } from "../contexts/useCart"
@@ -6,6 +6,7 @@ import { BiTrash } from "react-icons/bi"
 import { FaGhost } from "react-icons/fa"
 import Link from "next/link"
 import { TiCancelOutline, TiTickOutline } from "react-icons/ti"
+import { BsX } from "react-icons/bs"
 import { useState } from "react"
 
 function Cart(){
@@ -182,8 +183,19 @@ function Cart(){
                         backgroundColor="gray.700"
                         top="30%"
                     >
-                        <ModalHeader mb="4"/>
-                        <ModalCloseButton/>
+                        <ModalHeader mb="4">
+                            <IconButton
+                              icon={<BsX
+                              />}
+                              colorScheme="transparent"
+                              aria-label="Fechar janela"
+                              fontSize="3xl"
+                              pl="1"
+                              display="block"
+                              marginLeft="auto"
+                              onClick={onClose}
+                            ></IconButton>
+                        </ModalHeader>
 
                         <ModalBody fontSize="xl" mb="4">
                             <Text>Você quer realmente excluir este produto do seu carrinho?</Text>

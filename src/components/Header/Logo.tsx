@@ -1,4 +1,5 @@
-import { Flex, Text } from "@chakra-ui/react"
+import { Flex, Text, Link as ChakraLink } from "@chakra-ui/react"
+import Link from "next/link"
 
 function Logo(){
     const logoColors = ["green", "cyan.600", "yellow", "red"]
@@ -22,22 +23,27 @@ function Logo(){
     }
 
     return (
-        <Flex
-            maxWidth={400}
-            direction="column"
-            align="center"
-            fontFamily="'Press Start 2P', cursive"
-            fontSize="2xl"
-            userSelect="none"
-        >
-            <Flex>
-                { getColorfulLetters("Jogador") }
-            </Flex>
-            <Flex>
-                { getColorfulLetters("Karo") }
-            </Flex>
-            
-        </Flex>
+        <Link href="/" passHref>
+            <ChakraLink _hover={{textDecoration: "none"}} colorScheme="yellow">
+                <Flex
+                    maxWidth={400}
+                    direction="column"
+                    align="center"
+                    fontFamily="'Press Start 2P', cursive"
+                    fontSize="2xl"
+                    userSelect="none"
+                    cursor="pointer"
+                >
+                    <Flex>
+                        { getColorfulLetters("Jogador") }
+                    </Flex>
+                    <Flex>
+                        { getColorfulLetters("Karo") }
+                    </Flex>
+                    
+                </Flex>
+            </ChakraLink>
+        </Link>
     )
 }
 

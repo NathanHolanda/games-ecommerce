@@ -2,6 +2,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import type { AppProps } from 'next/app'
 import { theme } from '../../styles/theme'
 import { CartContextProvider } from '../contexts/useCart'
+import { SearchContextProvider } from '../contexts/useSearch'
 import { mirageServer } from '../services/miragejs'
 
 if(process.env.NODE_ENV === "development") {
@@ -11,9 +12,11 @@ if(process.env.NODE_ENV === "development") {
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
+      <SearchContextProvider>
       <CartContextProvider>
         <Component {...pageProps} />
       </CartContextProvider>
+      </SearchContextProvider>
     </ChakraProvider>
   )
 }

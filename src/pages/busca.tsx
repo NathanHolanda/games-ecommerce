@@ -3,6 +3,7 @@ import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import StarRatings from "react-star-ratings"
 import { Layout } from "../components/Layout"
+import { useSearch } from "../contexts/useSearch"
 import { api } from "../services/api"
 
 interface Product{
@@ -16,12 +17,14 @@ interface Product{
 function Search(){
     const router = useRouter()
     const [ products, setProducts ] = useState<Product[]>()
+    const { searched } = useSearch()
 
     useEffect(() => {
-        api.get(`/products/search?name=${router.query.name}`)
-            .then(response => response.data.products)
-            .then(products => setProducts(products))
-    }, [])
+        if(searched !== "")
+            api.get(`/products/search?name=${searched}`)
+                .then(response => response.data.products)
+                .then(products => setProducts(products))
+    }, [searched])
 
     /* api.get(`/products/search?name=${searched}`)
                 .then(result => console.log(result.data)) */
