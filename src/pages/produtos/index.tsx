@@ -38,7 +38,8 @@ function Products(){
             <Layout>
                 <Stack
                   as="main"
-                  spacing="20"
+                  mb="4"
+                  spacing="10"
                   h={600}
                   display="flex"
                   justify="center"
@@ -50,7 +51,6 @@ function Products(){
                                     minChildWidth={80}
                                     columns={4}
                                     spacing={10}
-                                    h={300}
                                 >
                                 {     
                                     products.map(product => {

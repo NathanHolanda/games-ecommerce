@@ -15,6 +15,7 @@ function Home(){
           direction="column"
           justify="center"
           as="main"
+          mb="4"
           textAlign="center"
         >
           <Box fontSize="xl">

@@ -52,6 +52,7 @@ function Product(){
                     direction="column"
                     justify="center"
                     as="main"
+                    mb="4"
                     textAlign="center"
                 >
                     {
