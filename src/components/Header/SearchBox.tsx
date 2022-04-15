@@ -2,7 +2,6 @@ import { Flex, Icon, Input, FormLabel as Label } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { BiSearchAlt2 } from "react-icons/bi"
-import { api } from '../../services/api';
 
 function SearchBox(){
     const [ searched, setSearched ] = useState<string>("")
@@ -10,22 +9,22 @@ function SearchBox(){
     const router = useRouter()
 
     useEffect(() => {
+        console.log(searched)
         if(searched !== ""){
-            api.get(`/products/search?name=${searched}`)
-                .then(result => console.log(result.data))
-        }else{
+            router.push(`/busca?name=${searched}`)
+        }/* else{
             if(searchBoxCleaned){
                 setSearchBoxCleaned(false)
                 router.push("/")
             }
-        }
+        } */
     }, [searched])
 
     return (
         <Flex align="center">
             <Input
                 id="search-box"
-                placeholder="Buscar..."
+                placeholder="Buscar por um produto..."
                 fontSize="lg"
                 variant="flushed"
                 focusBorderColor="yellow.400"
@@ -34,11 +33,7 @@ function SearchBox(){
                 width={300}
                 value={searched}
                 onChange={event => setSearched(event.target.value.trim())}
-                onKeyDown={event => {
-                    if(event.key === "Backspace" || event.key === "Delete" || event.key === "Space"){
-                        searched === "" && setSearchBoxCleaned(true)
-                    }
-                }}
+                /* onClick={() => router.push(`/busca?name=${searched}`)} */
                 autoComplete="off"
             />
             <Label htmlFor="search-box" cursor="pointer" mt="3">

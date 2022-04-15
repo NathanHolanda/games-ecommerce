@@ -1,5 +1,4 @@
 import { Box, Flex, IconButton, Image, Input, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Text } from "@chakra-ui/react"
-import ReactStars from "react-rating-stars-component"
 import Head from "next/head"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
@@ -7,6 +6,7 @@ import { Layout } from "../../components/Layout"
 import { api } from "../../services/api"
 import { BsCartPlus } from "react-icons/bs";
 import { useCart } from "../../contexts/useCart"
+import StarRatings from "react-star-ratings"
 
 interface Product{
     id: string,
@@ -84,17 +84,19 @@ function Product(){
                                         >{product.name}</Text>
                                         <Flex align="center" justify="space-between">
                                             <Box mr="4">
-                                                <ReactStars
-                                                    count={5}
-                                                    value={Math.ceil((product.score * 5)/400)}
-                                                    edit={true}
-                                                    /* onChange={ratingChanged} */
-                                                    size={24}
-                                                    activeColor="#B7791F"
+                                                <StarRatings
+                                                    rating={Math.ceil((product.score*5)/400)}
+                                                    starRatedColor="#c28919"
+                                                    starDimension="20px"
+                                                    changeRating={value => {}}
+                                                    starHoverColor="#3182CE"
+                                                    starSpacing="2px"
+                                                    numberOfStars={5}
                                                 />
                                                 <Text
                                                     fontSize="md"
                                                     ml="1"
+                                                    mt="2"
                                                     textAlign="left"
                                                     color="gray.400"
                                                 >
@@ -144,7 +146,7 @@ function Product(){
                                             colorScheme="yellow"
                                             aria-label="Adicionar ao carrinho"
                                             fontSize="4xl"
-                                            mt="8"
+                                            mt="6"
                                             p="6"
                                             icon={<BsCartPlus/>}
                                             onClick={() => {

@@ -1,10 +1,10 @@
 import { Box, SimpleGrid, Image, Flex, Text, keyframes, Button, Stack } from "@chakra-ui/react"
-import ReactStars from "react-rating-stars-component"
 import Link from "next/link"
 import Head from "next/head"
 import { useEffect, useState } from "react"
 import { Layout } from "../../components/Layout"
 import { api } from "../../services/api"
+import StarRatings from "react-star-ratings"
 
 interface Product{
     id: string,
@@ -90,18 +90,17 @@ function Products(){
                                                         color="yellow.400"
                                                         fontWeight="500"
                                                         >{product.name}</Text>
-                                                        <ReactStars
-                                                            count={5}
-                                                            value={score}
-                                                            edit={false}
-                                                            /* onChange={ratingChanged} */
-                                                            size={24}
-                                                            activeColor="#B7791F"
+                                                        <StarRatings
+                                                            rating={score}
+                                                            starRatedColor="#c28919"
+                                                            starDimension="20px"
+                                                            starSpacing="2px"
+                                                            numberOfStars={5}
                                                         />
                                                         <Text
                                                             fontSize="md"
+                                                            mt="2"
                                                             ml="1"
-                                                            /* textAlign="center" */
                                                             color="gray.400"
                                                         >{price}</Text>
                                                     </Box>
