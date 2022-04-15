@@ -66,13 +66,11 @@ function CartContextProvider({ children }: CartContextProviderProps){
                 })
 
                 if(isProductInCart && products.length > 1){
-                    const newProducts = products.splice(arrayId, 1)
-
-                    setProducts(newProducts)
+                    products.splice(arrayId, 1)
 
                     return
                 }
-
+                
                 setProducts([])
             }
         }}>

@@ -1,5 +1,4 @@
 import { ActiveModelSerializer, createServer, Model, Response } from "miragejs"
-import { runInThisContext } from "vm"
 import products from "./products.json"
 
 interface Product{
@@ -17,7 +16,7 @@ function mirageServer() {
     },
 
     models: {
-      product: Model.extend<Partial<Product>>({}),
+      product: Model.extend<Partial<Product[]>>([]),
     },
 
     seeds(server) {
@@ -50,6 +49,25 @@ function mirageServer() {
 
         return new Response(200, {}, { products })
       })
+
+      this.get("/products/search", (schema, request) => {
+        const { name, page = 1 } = request.queryParams
+
+        const perPage = 4 
+
+        const pageStart = (Number(page) - 1) * Number(perPage)
+        const pageEnd = Number(pageStart) + Number(perPage)
+
+        const products = schema.all("product").models
+          .filter(
+            product => product.attrs.name
+              .toLowerCase()
+              .includes(name.toLowerCase())
+          ).slice(pageStart, pageEnd)
+        
+        return new Response(200, {}, { products })
+      })
+
 
       this.get("/products/:id")
 

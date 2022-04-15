@@ -1,6 +1,5 @@
 import { Box, Button, IconButton, Text } from "@chakra-ui/react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { BiCartAlt } from "react-icons/bi";
 import { useCart } from "../../contexts/useCart";
 

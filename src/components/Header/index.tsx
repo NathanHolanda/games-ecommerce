@@ -11,7 +11,7 @@ function Header(){
         <Box
             w="100%"
             p="2"
-            borderBottom="1px solid"
+            borderBottom="2px solid"
             borderColor="yellow.400"
         >
             <Flex
