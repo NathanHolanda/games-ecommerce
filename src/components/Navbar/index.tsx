@@ -10,11 +10,10 @@ function Navbar(){
           py="4"
           borderBottom="1px solid"
           borderTop="1px solid"
-          borderColor="yellow.400"
+          borderColor="blue.600"
         >
             <NavbarLink icon={BiHome} link="/" text="Home"/>
             <NavbarLink icon={BiGame} link="/produtos" text="Produtos"/>
-            <NavbarLink icon={BiHistory} link="/historico" text="Histórico"/>
             <NavbarLink icon={BiCart} link="/carrinho" text="Carrinho"/>
         </Flex>
     )

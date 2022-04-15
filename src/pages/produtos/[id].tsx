@@ -1,10 +1,10 @@
-import { Box, Flex, IconButton, Image, Input, keyframes, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Text } from "@chakra-ui/react"
+import { Box, Flex, IconButton, Image, keyframes, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Popover, PopoverArrow, PopoverBody, PopoverContent, PopoverTrigger, Text, useDisclosure } from "@chakra-ui/react"
 import Head from "next/head"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import { Layout } from "../../components/Layout"
 import { api } from "../../services/api"
-import { BsCartPlus } from "react-icons/bs";
+import { BsCartPlus } from "react-icons/bs"
 import { useCart } from "../../contexts/useCart"
 import StarRatings from "react-star-ratings"
 
@@ -46,6 +46,8 @@ function Product(){
         100%{ color: #E2E8F0 }
     `
     const loadingAnimation = `${loadingKeyframe} 1.5s ease-in-out infinite`
+
+    const { isOpen, onClose, onOpen } = useDisclosure()
 
     return (
         <>
@@ -149,23 +151,51 @@ function Product(){
                                                 </NumberInputStepper>
                                             </NumberInput>
                                         </Flex>
-                                        <IconButton
-                                            colorScheme="yellow"
-                                            aria-label="Adicionar ao carrinho"
-                                            fontSize="4xl"
-                                            mt="6"
-                                            p="6"
-                                            icon={<BsCartPlus/>}
-                                            onClick={() => {
-                                                handleChangeCart({
-                                                    id: product.id,
-                                                    name: product.name,
-                                                    price: product.price,
-                                                    image: product.image,
-                                                    quantity: productQuantity,
-                                                })
-                                            }}
-                                        />
+                                        <Popover
+                                          isOpen={isOpen}
+                                          onClose={onClose}
+                                          placement="right"
+                                          autoFocus={false}
+                                          arrowShadowColor="gray.700"
+                                          arrowSize={12}
+                                        >
+                                            <PopoverTrigger>
+                                                <IconButton
+                                                    colorScheme="yellow"
+                                                    aria-label="Adicionar ao carrinho"
+                                                    fontSize="4xl"
+                                                    mt="6"
+                                                    p="6"
+                                                    icon={<BsCartPlus/>}
+                                                    onClick={() => {
+                                                        onOpen()
+
+                                                        handleChangeCart({
+                                                            id: product.id,
+                                                            name: product.name,
+                                                            price: product.price,
+                                                            image: product.image,
+                                                            quantity: productQuantity,
+                                                        })
+                                                        
+                                                        setTimeout(() => onClose(), 2000)
+                                                    }}
+                                                />
+                                            </PopoverTrigger>
+                                            <PopoverContent
+                                              bg="gray.600"
+                                              color="gray.200"
+                                              w={120}
+                                              ml="1"
+                                              borderRadius={10}
+                                              borderColor="gray.600"
+                                            >
+                                                <PopoverArrow bg="gray.600"/>
+                                                <PopoverBody p="2">
+                                                    <Text fontSize="md" fontWeight="500">Adicionado ao carrinho</Text>
+                                                </PopoverBody>
+                                            </PopoverContent>
+                                        </Popover>
                                     </Box>
                             </Flex> : error ?
                             <Box

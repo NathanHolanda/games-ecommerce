@@ -11,7 +11,7 @@ function Footer(){
           maxWidth={1200}
           textAlign="center"
           borderTop="1px solid"
-          borderColor="yellow.400"
+          borderColor="blue.600"
         >
             <Text fontSize="md" fontWeight="500">
                 Jogador Karo &copy; { new Date().getFullYear() }

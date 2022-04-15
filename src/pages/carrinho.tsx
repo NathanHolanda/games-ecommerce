@@ -44,6 +44,7 @@ function Cart(){
                                                 align="center"
                                                 justify="flex-start"
                                                 backgroundColor="gray.800"
+                                                borderRadius={5}
                                                 key={product.id}
                                             > 
                                                 <Box mr="6">
@@ -177,7 +178,7 @@ function Cart(){
                             </Flex> : ""
                     }
                 </Box>
-                <Modal isOpen={isOpen} onClose={onClose}>
+                <Modal autoFocus={false} isOpen={isOpen} onClose={onClose}>
                     <ModalOverlay />
                     <ModalContent
                         backgroundColor="gray.700"
