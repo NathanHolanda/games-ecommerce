@@ -129,7 +129,7 @@ function Cart(){
                                     }
                                 </SimpleGrid> :
                                 <Box textAlign="center">
-                                    <Text fontSize="2xl">Ainda não há nenhum item no seu carrinho... </Text>
+                                    <Text fontSize="2xl">Ainda não há nenhum item no seu carrinho...</Text>
                                     {
                                         [...Array(4)].map((_, i) => (
                                             <Icon

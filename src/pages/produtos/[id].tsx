@@ -1,4 +1,4 @@
-import { Box, Flex, IconButton, Image, Input, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Text } from "@chakra-ui/react"
+import { Box, Flex, IconButton, Image, Input, keyframes, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Text } from "@chakra-ui/react"
 import Head from "next/head"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
@@ -24,7 +24,7 @@ function Product(){
     const router = useRouter()
     const { id } = router.query
 
-    const { products, handleChangeCart } = useCart()
+    const { handleChangeCart } = useCart()
 
     useEffect(() => {
         setTimeout(() => {
@@ -39,6 +39,13 @@ function Product(){
             .catch(() => setError(true))
             .then(product => setProduct(product))
     }, [])
+
+    const loadingKeyframe = keyframes`
+        0%{ color: #E2E8F0 }
+        50%{ color: #718096 }
+        100%{ color: #E2E8F0 }
+    `
+    const loadingAnimation = `${loadingKeyframe} 1.5s ease-in-out infinite`
 
     return (
         <>
@@ -56,7 +63,7 @@ function Product(){
                     textAlign="center"
                 >
                     {
-                        product ? (
+                        product ? 
                             <Flex
                                 direction="column"
                                 align="center"
@@ -160,9 +167,7 @@ function Product(){
                                             }}
                                         />
                                     </Box>
-                            </Flex> 
-                        ) : error ?
-                        (
+                            </Flex> : error ?
                             <Box
                                 w="100%"
                                 textAlign="center"
@@ -170,16 +175,13 @@ function Product(){
                             >
                                 <Text>Erro ao carregar produto! 😢</Text>
                                 <Text>Redirecionando...</Text>
-                            </Box>
-                        ) :
-                        (
+                            </Box> :
                             <Box
                                 w="100%"
                                 textAlign="center"
                             >
-                                <Text fontSize="3xl">Carregando...</Text>
+                                <Text fontSize="3xl" animation={loadingAnimation}>Carregando...</Text>
                             </Box>
-                        )
                     }
                 </Flex>
             </Layout>

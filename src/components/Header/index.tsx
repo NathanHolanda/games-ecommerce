@@ -5,14 +5,10 @@ import { Profile } from "./Profile"
 import { SearchBox } from "./SearchBox"
 
 function Header(){
-    
-
     return (
         <Box
             w="100%"
-            p="2"
-            borderBottom="2px solid"
-            borderColor="yellow.400"
+            p="4"
         >
             <Flex
                 as="header"

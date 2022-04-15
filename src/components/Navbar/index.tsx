@@ -7,9 +7,9 @@ function Navbar(){
         <Flex
           as="nav"
           justify="center"
-          mt="4"
-          pb="4"
-          borderBottom="2px solid"
+          py="4"
+          borderBottom="1px solid"
+          borderTop="1px solid"
           borderColor="yellow.400"
         >
             <NavbarLink icon={BiHome} link="/" text="Home"/>
