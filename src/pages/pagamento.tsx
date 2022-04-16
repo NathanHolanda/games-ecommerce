@@ -54,10 +54,11 @@ function Payment(){
                             <Select focusBorderColor="yellow.700" borderColor="yellow.400" id="cardBrand" required>
                                 <option value="" selected hidden disabled>Selecione um bandeira</option>	
                                 {
-                                    cardBrands.map(brand => (
+                                    cardBrands.map((brand, i) => (
                                         <option
                                             value={brand}
                                             style={{ background: "#2D3748" }}
+                                            key={i}
                                         >
                                             {brand}
                                         </option>

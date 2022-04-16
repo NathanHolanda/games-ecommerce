@@ -28,6 +28,9 @@ function SearchBox(){
                 value={searched}
                 onChange={event => handleSearchedChange(event.target.value.trim())}
                 onClick={() => router.push("/busca")}
+                onBlur={() => {
+                    if(searched === "") router.back()
+                }}
                 autoComplete="off"
             />
             <Label htmlFor="search-box" cursor="pointer" mt="3">

@@ -9,6 +9,7 @@ function Footer(){
           bottom={0}
           w="100%"
           p="4"
+          mt="8"
           maxWidth={1200}
           textAlign="center"
           borderTop="1px solid"

@@ -23,7 +23,7 @@ function Cart(){
             <Layout>
                 <Box as="main" mb="4">
                     <Flex
-                        h={540}
+                        h={500}
                         display="flex"
                         align="center"
                         justify="center"

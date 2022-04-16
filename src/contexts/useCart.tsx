@@ -68,6 +68,8 @@ function CartContextProvider({ children }: CartContextProviderProps){
                 if(isProductInCart && products.length > 1){
                     products.splice(arrayId, 1)
 
+                    setProducts(products)
+
                     return
                 }
                 
