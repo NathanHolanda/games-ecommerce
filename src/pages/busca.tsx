@@ -50,47 +50,47 @@ function Search(){
                 >
                     {
                         searched === "" ? 
-                            <Box textAlign="center">
-                                <Text fontSize="2xl">Procure por algum produto na nossa loja 🧐</Text>
-                            </Box> : notFound ? 
-                            <Box textAlign="center">
-                                <Text fontSize="2xl">Desculpe, não encontramos nenhum produto com esse nome 🥺</Text>
-                            </Box> : products.length > 0 ?                         
-                            <>
-                                <Products products={products}/>
-                                <Flex justify="center">
-                                    <Button
-                                        borderRadius={5}
-                                        backgroundColor="blue.600"
-                                        _hover={{ backgroundColor: "blue.700" }}
-                                        w="6"
-                                        h="8"
-                                        mr="2"
-                                        fontWeight="400"
-                                        fontSize="lg"
-                                    >1</Button>
-                                    <Button
-                                        borderRadius={5}
-                                        backgroundColor="blue.600"
-                                        _hover={{ backgroundColor: "blue.700" }}
-                                        w="6"
-                                        h="8"
-                                        mr="2"
-                                        fontWeight="400"
-                                        fontSize="lg"
-                                    >2</Button>
-                                    <Button
-                                        borderRadius={5}
-                                        backgroundColor="blue.600"
-                                        _hover={{ backgroundColor: "blue.700" }}
-                                        w="6"
-                                        h="8"
-                                        mr="2"
-                                        fontWeight="400"
-                                        fontSize="lg"
-                                    >3</Button>
-                                </Flex>
-                            </> : <Loading/>
+                        <Box textAlign="center">
+                            <Text fontSize="2xl">Procure por algum produto na nossa loja 🧐</Text>
+                        </Box> : notFound ? 
+                        <Box textAlign="center">
+                            <Text fontSize="2xl">Desculpe, não encontramos nenhum produto com esse nome 🥺</Text>
+                        </Box> : products.length > 0 ?                         
+                        <>
+                            <Products products={products}/>
+                            <Flex justify="center">
+                                <Button
+                                    borderRadius={5}
+                                    backgroundColor="blue.600"
+                                    _hover={{ backgroundColor: "blue.700" }}
+                                    w="6"
+                                    h="8"
+                                    mr="2"
+                                    fontWeight="400"
+                                    fontSize="lg"
+                                >1</Button>
+                                <Button
+                                    borderRadius={5}
+                                    backgroundColor="blue.600"
+                                    _hover={{ backgroundColor: "blue.700" }}
+                                    w="6"
+                                    h="8"
+                                    mr="2"
+                                    fontWeight="400"
+                                    fontSize="lg"
+                                >2</Button>
+                                <Button
+                                    borderRadius={5}
+                                    backgroundColor="blue.600"
+                                    _hover={{ backgroundColor: "blue.700" }}
+                                    w="6"
+                                    h="8"
+                                    mr="2"
+                                    fontWeight="400"
+                                    fontSize="lg"
+                                >3</Button>
+                            </Flex>
+                        </> : <Loading/>
                     }       
                 </Stack>
             </Layout>
