@@ -1,28 +1,42 @@
-import { Avatar, Box, Button, Flex, Icon, Text } from "@chakra-ui/react";
-import { useState } from "react";
+import { Avatar, Box, Button, Flex, Icon, IconButton, Text } from "@chakra-ui/react";
 import { BsGithub } from "react-icons/bs"
+import { useSession, signIn, signOut } from "next-auth/react"
+import { BiLogOutCircle } from "react-icons/bi";
 
 
 function Profile(){
-    const [ isUserLoggedIn, setIsUserLoggedIn ] = useState<boolean>(true)
-
+    const { data: session } = useSession()
     
-    return isUserLoggedIn ? (
+    return session?.user ? (
         <Flex>
             <Box mr="2">
-                <Text fontSize="md" fontWeight="500">Nathan Holanda</Text>
+                <Text fontSize="md" fontWeight="500">
+                    { session.user.name }
+                    <IconButton
+                        fontSize="lg"
+                        icon={<BiLogOutCircle/>}
+                        aria-label="Sair"
+                        colorScheme="transparent"
+                        p="0"
+                        h="5"
+                        mb="0"
+                        onClick={() => signOut()}
+                    />
+                </Text>
+                
                 <Text
                     color="gray.500"
                     fontSize="sm"
                 >
-                    nathan.hl.contato@gmail.com
+                    { session.user.email }
                 </Text>
             </Box>
             <Avatar
-                name="Nathan Holanda"
-                title="Nathan Holanda"
-                src="https://github.com/nathanholanda.png"
+                name={ session.user.name || "" }
+                title={ session.user.name || "" }
+                src={ session.user.image || "" }
             />
+            
         </Flex>
     ) : (
         <Button 
@@ -37,6 +51,7 @@ function Profile(){
                 color: "yellow.100"
             }}
             borderRadius={20}
+            onClick={() => signIn("github")}
         >
             <Box mr="2">
                 <Text fontSize="lg">Faça login com o GitHub</Text>

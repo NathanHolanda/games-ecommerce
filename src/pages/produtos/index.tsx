@@ -15,7 +15,7 @@ interface Product{
 }
 
 function Products(){
-    const [ products, setProducts ] = useState<Product[]>()
+    const [ products, setProducts ] = useState()
 
     const getProducts = () => {
         api.get("/products")
@@ -83,5 +83,15 @@ function Products(){
         </>
     )
 }
+
+/* export async function getServerSideProps(){
+    const response = await api.get("/products")
+    console.log(response)
+    const { products } = response.data
+        
+    return {
+        props: { products }
+    }
+} */
 
 export default Products
