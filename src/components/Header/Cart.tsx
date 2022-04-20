@@ -1,7 +1,7 @@
 import { Box, Button, IconButton, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import { BiCartAlt } from "react-icons/bi";
-import { useCart } from "../../contexts/useCart";
+import { useCart } from "../../contexts/cart";
 
 function Cart(){
     const { products } = useCart()

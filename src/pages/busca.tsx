@@ -2,10 +2,12 @@ import { Box, Button, Flex, Stack, Text } from "@chakra-ui/react";
 import Head from "next/head"
 import { useEffect, useState } from "react"
 import { Layout } from "../components/Layout"
-import { useSearch } from "../contexts/useSearch"
+import { useSearch } from "../contexts/search"
 import { api } from "../services/api"
 import { Loading } from "../components/content/general/Loading"
 import { Products } from "../components/content/Products";
+import { Pagination } from "../components/content/general/Pagination";
+import { usePagination } from "../contexts/pagination";
 
 interface Product{
     id: string,
@@ -19,11 +21,19 @@ function Search(){
     const [ products, setProducts ] = useState<Product[]>([])
     const [ notFound, setNotFound ] = useState<boolean>(false)
     const { searched } = useSearch()
+    const [ totalProducts, setTotalProducts] = useState(0)
+    const { page } = usePagination()
 
     const searchProducts = () => {
         if(searched !== "")
-            api.get(`/products/search?name=${searched}`)
-                .then(response => response.data.products)
+            api.get(`/products/search?name=${searched}&page=${page}`)
+                .then(response => {
+                    setTotalProducts(Number(
+                        response.headers["x-count-products"]
+                    ))
+
+                    return response.data.products
+                })
                 .then(products => {
                     if(products.length !== 0){
                         setNotFound(false)
@@ -32,7 +42,9 @@ function Search(){
                 })
     }
 
-    useEffect(searchProducts, [searched])
+    console.log(products)
+
+    useEffect(searchProducts, [ searched, page ])
 
     return (
         <>
@@ -58,38 +70,10 @@ function Search(){
                         </Box> : products.length > 0 ?                         
                         <>
                             <Products products={products}/>
-                            <Flex justify="center">
-                                <Button
-                                    borderRadius={5}
-                                    backgroundColor="blue.600"
-                                    _hover={{ backgroundColor: "blue.700" }}
-                                    w="6"
-                                    h="8"
-                                    mr="2"
-                                    fontWeight="400"
-                                    fontSize="lg"
-                                >1</Button>
-                                <Button
-                                    borderRadius={5}
-                                    backgroundColor="blue.600"
-                                    _hover={{ backgroundColor: "blue.700" }}
-                                    w="6"
-                                    h="8"
-                                    mr="2"
-                                    fontWeight="400"
-                                    fontSize="lg"
-                                >2</Button>
-                                <Button
-                                    borderRadius={5}
-                                    backgroundColor="blue.600"
-                                    _hover={{ backgroundColor: "blue.700" }}
-                                    w="6"
-                                    h="8"
-                                    mr="2"
-                                    fontWeight="400"
-                                    fontSize="lg"
-                                >3</Button>
-                            </Flex>
+                            <Pagination 
+                                totalItems={totalProducts}
+                                currentPage={page}
+                            />
                         </> : <Loading/>
                     }       
                 </Stack>

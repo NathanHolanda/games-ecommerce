@@ -30,34 +30,35 @@ function mirageServer() {
       this.timing = 750
 
       this.get("/products", (schema, request) => {
-        const { page = 1 } = request.queryParams
-        const perPage = 4 
+        const { page = 1, perPage = 4  } = request.queryParams
 
         const pageStart = (Number(page) - 1) * Number(perPage)
         const pageEnd = Number(pageStart) + Number(perPage)
 
-        const products = schema.db.products
-        .slice(pageStart, pageEnd)
+        const data = schema.db.products
+        const total = data.length
 
-        return new Response(200, {}, { products })
+        const products = data.slice(pageStart, pageEnd)
+
+        return new Response(200, { "x-count-products": String(total) }, { products })
       })
 
       this.get("/products/search", (schema, request) => {
-        const { name, page = 1 } = request.queryParams
-
-        const perPage = 4 
+        const { name, page = 1, perPage = 4 } = request.queryParams
 
         const pageStart = (Number(page) - 1) * Number(perPage)
         const pageEnd = Number(pageStart) + Number(perPage)
-
-        const products = schema.db.products
-          .filter(
+          
+        const data = schema.db.products.filter(
             product => product.name
               .toLowerCase()
               .includes(name.toLowerCase())
-          ).slice(pageStart, pageEnd)
+          )
+          
+        const total = data.length
+        const products = data.slice(pageStart, pageEnd)
         
-        return new Response(200, {}, { products })
+        return new Response(200, { "x-count-products": String(total) }, { products })
       })
 
 

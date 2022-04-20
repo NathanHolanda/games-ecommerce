@@ -1,6 +1,6 @@
 import { Popover, PopoverTrigger, IconButton, PopoverContent, PopoverArrow, PopoverBody, Text, useDisclosure } from "@chakra-ui/react"
 import { BsCartPlus } from "react-icons/bs"
-import { useCart } from "../../../contexts/useCart"
+import { useCart } from "../../../contexts/cart"
 
 interface Product{
     id: string

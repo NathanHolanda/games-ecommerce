@@ -2,16 +2,8 @@ import { Box, Link as ChakraLink, Text, Flex } from "@chakra-ui/react"
 import Link from "next/link"
 import Head from "next/head"
 import { Layout } from "../components/Layout"
-import { useEffect } from "react"
-import { api } from "../services/api"
 
 function Home(){
-  useEffect(() => {
-    api.get("/products")
-    .then(response => response.data)
-    .then(products => console.log(products))
-  })
-
   return (
     <>
       <Head>

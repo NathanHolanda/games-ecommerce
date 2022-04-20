@@ -2,7 +2,7 @@ import { Flex, Icon, Input, FormLabel as Label } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { BiSearchAlt2 } from "react-icons/bi"
-import { useSearch } from '../../contexts/useSearch';
+import { useSearch } from '../../contexts/search';
 
 function SearchBox(){
     const { searched, handleSearchedChange } = useSearch()

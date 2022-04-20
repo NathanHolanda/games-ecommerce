@@ -2,7 +2,7 @@ import { Text, Box, Flex } from "@chakra-ui/react";
 import Head from "next/head"
 import { PaymentForm } from "../components/content/PaymentForm"
 import { Layout } from "../components/Layout"
-import { useCart } from "../contexts/useCart"
+import { useCart } from "../contexts/cart"
 
 function Payment(){
     const { products } = useCart()

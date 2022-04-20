@@ -1,7 +1,7 @@
 import { Box, Flex, SimpleGrid, Text, Image, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, IconButton, Icon, Button, useDisclosure, Modal, ModalBody, ModalContent, ModalFooter, ModalOverlay, ModalHeader } from "@chakra-ui/react"
 import Head from "next/head"
 import { Layout } from "../components/Layout"
-import { useCart } from "../contexts/useCart"
+import { useCart } from "../contexts/cart"
 import { BiTrash } from "react-icons/bi"
 import { FaGhost } from "react-icons/fa"
 import Link from "next/link"
