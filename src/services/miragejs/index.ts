@@ -1,14 +1,6 @@
 import { ActiveModelSerializer, createServer, Model, Response } from "miragejs"
 import products from "./products.json"
 
-interface Product{
-  id: string,
-  name: string,
-  price: number,
-  score: number,
-  image: string
-}
-
 function mirageServer() {
   let server = createServer({
     serializers: {
@@ -16,7 +8,7 @@ function mirageServer() {
     },
 
     models: {
-      product: Model.extend<Partial<Product[]>>([]),
+      product: Model,
     },
 
     seeds(server) {
@@ -44,7 +36,7 @@ function mirageServer() {
         const pageStart = (Number(page) - 1) * Number(perPage)
         const pageEnd = Number(pageStart) + Number(perPage)
 
-        const products = schema.all("product").models
+        const products = schema.db.products
         .slice(pageStart, pageEnd)
 
         return new Response(200, {}, { products })
@@ -58,9 +50,9 @@ function mirageServer() {
         const pageStart = (Number(page) - 1) * Number(perPage)
         const pageEnd = Number(pageStart) + Number(perPage)
 
-        const products = schema.all("product").models
+        const products = schema.db.products
           .filter(
-            product => product.attrs.name
+            product => product.name
               .toLowerCase()
               .includes(name.toLowerCase())
           ).slice(pageStart, pageEnd)
