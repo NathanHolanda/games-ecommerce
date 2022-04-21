@@ -6,22 +6,27 @@ import { SearchContextProvider } from '../contexts/search'
 import { mirageServer } from '../services/miragejs'
 import { SessionProvider } from "next-auth/react"
 import { PaginationContextProvider } from '../contexts/pagination'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 if(process.env.NODE_ENV === "development") {
   mirageServer()
 }  
 
+const queryClient = new QueryClient()
+
 function MyApp({ Component, pageProps: { session, ...pageProps }}: AppProps) {
   return (
-    <SessionProvider session={session}>
-      <ChakraProvider theme={theme}>
-        <PaginationContextProvider>
-        <SearchContextProvider>
-        <CartContextProvider>
-          <Component {...pageProps} />
-        </CartContextProvider>
-        </SearchContextProvider>
-        </PaginationContextProvider>
+    <SessionProvider session={session}> {/* Next-Auth */}
+      <ChakraProvider theme={theme}> {/* Chakra-UI */} 
+        <QueryClientProvider client={queryClient}> {/* React-Query */}
+          <PaginationContextProvider> {/* My contexts */}
+          <SearchContextProvider> {/***/}
+          <CartContextProvider> {/***/}
+            <Component {...pageProps} />
+          </CartContextProvider>
+          </SearchContextProvider>
+          </PaginationContextProvider>
+        </QueryClientProvider>
       </ChakraProvider>
     </SessionProvider>
   )

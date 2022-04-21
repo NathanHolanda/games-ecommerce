@@ -12,6 +12,7 @@ function ProductImage({ image, name }: ProductImageProps) {
                 src={image}
                 alt={name}
                 title={name}
+                maxW="150px"
             />
         </Flex>
     )

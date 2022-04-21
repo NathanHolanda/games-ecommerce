@@ -42,8 +42,6 @@ function Search(){
                 })
     }
 
-    console.log(products)
-
     useEffect(searchProducts, [ searched, page ])
 
     return (

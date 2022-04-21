@@ -28,7 +28,7 @@ function Product({ product }: ProductProps){
             m="0 auto"
             py="6"
             px="2"
-            boxSize="md"
+            boxSize="lg"
             borderRadius={5}
             transition="transform 0.2s"
             maxW={350}

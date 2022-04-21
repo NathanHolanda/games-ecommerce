@@ -1,31 +1,15 @@
 import { Stack } from "@chakra-ui/react";
 import Head from "next/head"
-import { useEffect, useState } from "react"
 import { Layout } from "../../components/Layout"
-import { api } from "../../services/api"
 import { Loading } from "../../components/content/general/Loading"
 import { Products as ProductsComponent } from "../../components/content/Products"
 import { Pagination } from "../../components/content/general/Pagination";
 import { usePagination } from "../../contexts/pagination";
+import { useProducts } from "../../hooks/products";
 
 function Products(){
-    const [ products, setProducts ] = useState([])
-    const [ totalProducts, setTotalProducts] = useState(0)
     const { page } = usePagination()
-
-    const getProducts = () => {
-        api.get(`/products?page=${page}`)
-            .then(response => {
-                setTotalProducts(Number(
-                    response.headers["x-count-products"]
-                ))
-
-                return response.data.products
-            })
-            .then(products => setProducts(products))
-    }
-
-    useEffect(getProducts, [ page ])
+    const query = useProducts(`/products?page=${page}`, page)
 
     return (
         <>
@@ -42,29 +26,20 @@ function Products(){
                   justify="center"
                 >
                     {
-                        products.length > 0 ?
+                        query.isLoading && !query.isFetched ?
+                        <Loading/> : query.data ?
                         <>
-                            <ProductsComponent products={products}/>
+                            <ProductsComponent products={query.data.products}/>
                             <Pagination 
-                                totalItems={totalProducts}
+                                totalItems={query.data.total}
                                 currentPage={page}
                             />
-                        </> : <Loading/>
+                        </> : ""
                     }
                 </Stack>
             </Layout>
         </>
     )
 }
-
-/* export async function getServerSideProps(){
-    const response = await api.get("/products")
-
-    const { products } = response.data
-        
-    return {
-        props: { products }
-    }
-} */
 
 export default Products

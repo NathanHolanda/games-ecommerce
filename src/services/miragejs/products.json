@@ -1,65 +1,156 @@
 [
     {
-      "id": 312,
+      "id": 1,
       "name": "Super Mario Odyssey",
       "price": 197.88,
       "score": 100,
       "image": "super-mario-odyssey.png"
     },
     {
-      "id": 201,
+      "id": 2,
       "name": "Call Of Duty Infinite Warfare",
       "price": 49.99,
       "score": 80,
       "image": "call-of-duty-infinite-warfare.png"
     },
     {
-      "id": 102,
+      "id": 3,
       "name": "The Witcher III Wild Hunt",
       "price": 119.5,
       "score": 250,
       "image": "the-witcher-iii-wild-hunt.png"
     },
     {
-      "id": 99,
+      "id": 4,
       "name": "Call Of Duty WWII",
       "price": 249.99,
       "score": 205,
       "image": "call-of-duty-wwii.png"
     },
     {
-      "id": 12,
+      "id": 5,
       "name": "Mortal Kombat XL",
       "price": 69.99,
       "score": 150,
       "image": "mortal-kombat-xl.png"
     },
     {
-      "id": 74,
+      "id": 6,
       "name": "Shards of Darkness",
       "price": 71.94,
       "score": 400,
       "image": "shards-of-darkness.png"
     },
     {
-      "id": 31,
+      "id": 7,
       "name": "Terra Média: Sombras de Mordor",
       "price": 79.99,
       "score": 50,
       "image": "terra-media-sombras-de-mordor.png"
     },
     {
-      "id": 420,
+      "id": 8,
       "name": "FIFA 18",
       "price": 195.39,
       "score": 325,
       "image": "fifa-18.png"
     },
     {
-      "id": 501,
+      "id": 9,
       "name": "Horizon Zero Dawn",
       "price": 115.8,
       "score": 290,
       "image": "horizon-zero-dawn.png"
+    },
+    {
+      "id": 10,
+      "name": "Grand Theft Auto 5",
+      "price": 110.99,
+      "score": 260,
+      "image": "https://imgur.com/BqNWnDB.png"
+    },
+    {
+      "id": 11,
+      "name": "Minecraft",
+      "price": 85,
+      "score": 160,
+      "image": "https://imgur.com/LXnUnd2.png"
+    },
+    {
+      "id": 12,
+      "name": "PUBG",
+      "price": 19.99,
+      "score": 180,
+      "image": "https://imgur.com/Ondg3Jn.png"
+    },
+    {
+      "id": 13,
+      "name": "FIFA 21",
+      "price": 120,
+      "score": 230,
+      "image": "https://imgur.com/AzT9YMP.png"
+    },
+    {
+      "id": 14,
+      "name": "Battlefield 5",
+      "price": 85.50,
+      "score": 320,
+      "image": "https://imgur.com/X3MQNVs.png"
+    },
+    {
+      "id": 15,
+      "name": "Watch Dogs 2",
+      "price": 63,
+      "score": 270,
+      "image": "https://imgur.com/v3lqCEb.png"
+    },
+    {
+      "id": 16,
+      "name": "Fortnite",
+      "price": 72.99,
+      "score": 190,
+      "image": "https://imgur.com/3lTxDpl.png"
+    },
+    {
+      "id": 17,
+      "name": "Call of Duty: Black Ops",
+      "price": 249,
+      "score": 330,
+      "image": "https://imgur.com/4GvUw3G.png"
+    },
+    {
+      "id": 18,
+      "name": "NBA2K21 Next Generation",
+      "price": 230,
+      "score": 255,
+      "image": "https://imgur.com/Mxjvkws.png"
+    },
+    {
+      "id": 19,
+      "name": "Cyberpunk 2077",
+      "price": 89,
+      "score": 120,
+      "image": "https://imgur.com/3CF1UhY.png"
+    },
+    {
+      "id": 20,
+      "name": "Assassin's Creed Valhalla",
+      "price": 239.80,
+      "score": 240,
+      "image": "https://imgur.com/xJD093X.png"
+    },
+    {
+      "id": 21,
+      "name": "Red Dead Redemption 2",
+      "price": 250,
+      "score": 340,
+      "image": "https://imgur.com/aLObdQK.png"
+    },
+    {
+      "id": 22,
+      "name": "Flight Simulator 2020",
+      "price": 210,
+      "score": 220,
+      "image": "https://imgur.com/2IeocI8.png"
     }
   ]

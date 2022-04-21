@@ -9,9 +9,10 @@ function ProductImage({ image, name }: ProductImageProps) {
     return (
         <Flex justify="center" boxSize="md">
             <Image
-                src={`../${image}`}
+                src={image.startsWith("http") ? image : `../${image}`}
                 alt={name}
                 title={name}
+                maxW="200px"
             />
         </Flex>
     )
