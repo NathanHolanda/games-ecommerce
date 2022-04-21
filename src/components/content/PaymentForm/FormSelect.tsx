@@ -1,14 +1,23 @@
 import { Select } from "@chakra-ui/react";
+import { useRegister } from "./contexts/register";
 
 interface FormSelectProps{
     items: string[]
     placeholder: string
-    id: string
+    name: "name" | "email" | "cpf" | "cardNumber" | "cardBrand" | "cardName" | "cardCpf" | "dueDateCard" | "securityCodeCard"
 }
 
-function FormSelect({ items, placeholder, id }: FormSelectProps) {
+function FormSelect({ items, placeholder, name }: FormSelectProps) {
+    const { register } = useRegister()
+
     return (
-        <Select focusBorderColor="yellow.700" borderColor="yellow.400" id={ id } required>
+        <Select
+          {...register(name)}
+          focusBorderColor="yellow.700"
+          borderColor="yellow.400"
+          name={name}
+          required
+        >
             <option value="" selected hidden disabled>{ placeholder }</option>	
             {
                 items.map((item, i) => (

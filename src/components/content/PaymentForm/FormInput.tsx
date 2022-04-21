@@ -1,16 +1,27 @@
 import { FormControl, FormHelperText, Input } from "@chakra-ui/react"
+import { useRegister } from "./contexts/register"
 
 interface FormInputProps{
     placeholder: string
-    id: string
+    name: "name" | "email" | "cpf" | "cardNumber" | "cardBrand" | "cardName" | "cardCpf" | "dueDateCard" | "securityCodeCard"
     type: string
     helper?: string
 }
 
-function FormInput({ placeholder, id, type, helper = "" } : FormInputProps) {
+function FormInput({ placeholder, name, type, helper = "" } : FormInputProps) {
+    const { register } = useRegister()
+
     return (
         <FormControl>
-            <Input placeholder={ placeholder } focusBorderColor="yellow.700" borderColor="yellow.400" id={ id } type={ type } required/>
+            <Input
+              {...register(name)}
+              placeholder={ placeholder }
+              focusBorderColor="yellow.700"
+              borderColor="yellow.400"
+              name={ name }
+              type={ type }
+              required
+            />
             { helper ? <FormHelperText fontSize="xs" ml="2">{ helper }</FormHelperText> : "" }
         </FormControl>
     )

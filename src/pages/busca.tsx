@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Stack, Text } from "@chakra-ui/react";
+import { Box, Stack, Text } from "@chakra-ui/react";
 import Head from "next/head"
 import { useEffect, useState } from "react"
 import { Layout } from "../components/Layout"
