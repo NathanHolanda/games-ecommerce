@@ -1,10 +1,19 @@
 import { Text, Box, Flex } from "@chakra-ui/react";
+import { useSession } from "next-auth/react";
 import Head from "next/head"
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { PaymentForm } from "../components/content/PaymentForm"
 import { Layout } from "../components/Layout"
 import { useCart } from "../contexts/cart"
 
 function Payment(){
+    const { status } = useSession()
+    const { push } = useRouter()
+    useEffect(() => {
+        if(status !== "authenticated") push("/")
+    }, [])
+
     const { products } = useCart()
     const total = products
         .reduce((accum, product) => accum + (product.totalPrice || 0), 0)
@@ -13,7 +22,7 @@ function Payment(){
         currency: "BRL"
     }).format(total)
 
-    return (
+    return status === "authenticated" ? (
         <>
             <Head>
                 <title>Jogador Karo | Pagamento</title>
@@ -33,7 +42,7 @@ function Payment(){
                 </Flex>
             </Layout>
         </>
-    )
+    ) : ""
 }
 
 export default Payment

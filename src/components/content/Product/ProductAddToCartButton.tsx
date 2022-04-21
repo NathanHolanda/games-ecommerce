@@ -1,4 +1,5 @@
 import { Popover, PopoverTrigger, IconButton, PopoverContent, PopoverArrow, PopoverBody, Text, useDisclosure } from "@chakra-ui/react"
+import { useSession } from "next-auth/react"
 import { BsCartPlus } from "react-icons/bs"
 import { useCart } from "../../../contexts/cart"
 
@@ -9,14 +10,30 @@ interface Product{
     image: string
 }
 
-interface ProductAddCartButtonProps{
+interface ProductAddToCartButtonProps{
     product: Product
     quantity: number
 } 
 
-function ProductAddCartButton({ product, quantity }: ProductAddCartButtonProps) {
+function ProductAddToCartButton({ product, quantity }: ProductAddToCartButtonProps) {
+    const { status } = useSession()
+
     const { isOpen, onClose, onOpen } = useDisclosure()
     const { handleChangeCart } = useCart()
+    const addToCart = () => {
+        onOpen()
+
+        if(status === "authenticated")
+            handleChangeCart({
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                image: product.image,
+                quantity,
+            })
+        
+        setTimeout(() => onClose(), 2000)
+    }
 
     return (
         <Popover
@@ -35,19 +52,7 @@ function ProductAddCartButton({ product, quantity }: ProductAddCartButtonProps) 
                     mt="6"
                     p="6"
                     icon={<BsCartPlus/>}
-                    onClick={() => {
-                        onOpen()
-
-                        handleChangeCart({
-                            id: product.id,
-                            name: product.name,
-                            price: product.price,
-                            image: product.image,
-                            quantity,
-                        })
-                        
-                        setTimeout(() => onClose(), 2000)
-                    }}
+                    onClick={ addToCart }
                 />
             </PopoverTrigger>
             <PopoverContent
@@ -60,11 +65,15 @@ function ProductAddCartButton({ product, quantity }: ProductAddCartButtonProps) 
             >
                 <PopoverArrow bg="gray.600"/>
                 <PopoverBody p="2">
-                    <Text fontSize="md" fontWeight="500">Adicionado ao carrinho</Text>
+                    <Text fontSize="md" fontWeight="500">{
+                        status === "authenticated" ?
+                        "Adicionado ao carrinho" :
+                        "Faça login para comprar"
+                    }</Text>
                 </PopoverBody>
             </PopoverContent>
         </Popover>
     )
 }
 
-export { ProductAddCartButton }
+export { ProductAddToCartButton }

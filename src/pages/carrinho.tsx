@@ -6,8 +6,17 @@ import { ProductCards } from "../components/content/cart/ProductCards"
 import { NoProductsInCart } from "../components/content/cart/NoProductsInCart";
 import { PaymentButton } from "../components/content/cart/PaymentButton";
 import { ConfirmRemoveProductModal } from "../components/content/cart/ConfirmRemoveProductModal";
+import { useSession } from "next-auth/react";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 function Cart(){
+    const { status } = useSession()
+    const { push } = useRouter()
+    useEffect(() => {
+        if(status !== "authenticated") push("/")
+    }, [])
+
     const { products } = useCart()
     const { isOpen, onOpen, onClose } = useDisclosure()
     const total = products
@@ -15,7 +24,7 @@ function Cart(){
             (accum, product) => accum + (product.totalPrice || 0)
         , 0)
 
-    return (
+    return status === "authenticated" ? (
         <>
             <Head>
                 <title>Jogador Karo | Carrinho</title>
@@ -44,7 +53,7 @@ function Cart(){
                 <ConfirmRemoveProductModal isOpen={isOpen} onClose={onClose} />
             </Layout>
         </>
-    )
+    ) : ""
 }
 
 export default Cart

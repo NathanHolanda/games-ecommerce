@@ -1,6 +1,6 @@
 import { Flex, Box, Text } from "@chakra-ui/react";
 import { useState } from "react"
-import { ProductAddCartButton } from "./ProductAddCartButton"
+import { ProductAddToCartButton } from "./ProductAddToCartButton"
 import { ProductImage } from "./ProductImage"
 import { ProductInfo } from "./ProductInfo"
 import { ProductQuantityInput } from "./ProductQuantityInput"
@@ -48,7 +48,7 @@ function Product({ product }: ProductProps){
                         <ProductQuantityInput quantity={quantity} setQuantity={setQuantity} />
                     </Flex>
 
-                    <ProductAddCartButton product={product} quantity={quantity} />
+                    <ProductAddToCartButton product={product} quantity={quantity} />
                 </Box>
         </Flex>
     )

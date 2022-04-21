@@ -1,10 +1,13 @@
 import { Box, Flex, HStack } from "@chakra-ui/react"
+import { useSession } from "next-auth/react"
 import { Cart } from "./Cart"
 import { Logo } from "./Logo"
 import { Profile } from "./Profile"
 import { SearchBox } from "./SearchBox"
 
 function Header(){
+    const { status } = useSession()
+
     return (
         <Box
             w="100%"
@@ -21,7 +24,7 @@ function Header(){
                 </HStack>
                 <Flex>
                     <Profile/>
-                    <Cart/>
+                    { status === "authenticated" && <Cart/> }
                 </Flex>
             </Flex>
         </Box>
