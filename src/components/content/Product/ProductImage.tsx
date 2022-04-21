@@ -6,10 +6,12 @@ interface ProductImageProps{
 }
 
 function ProductImage({ image, name }: ProductImageProps) {
+    const src = image.startsWith("http") ? image : `../${image}`
+
     return (
         <Flex justify="center" boxSize="md">
             <Image
-                src={image.startsWith("http") ? image : `../${image}`}
+                src={src}
                 alt={name}
                 title={name}
                 maxW="200px"

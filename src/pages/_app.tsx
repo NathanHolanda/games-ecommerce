@@ -7,6 +7,7 @@ import { mirageServer } from '../services/miragejs'
 import { SessionProvider } from "next-auth/react"
 import { PaginationContextProvider } from '../contexts/pagination'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { ConfirmRemoveProductProvider } from '../contexts/confirmRemoveProduct'
 
 if(process.env.NODE_ENV === "development") {
   mirageServer()
@@ -20,10 +21,12 @@ function MyApp({ Component, pageProps: { session, ...pageProps }}: AppProps) {
       <ChakraProvider theme={theme}> {/* Chakra-UI */} 
         <QueryClientProvider client={queryClient}> {/* React-Query */}
           <PaginationContextProvider> {/* My contexts */}
-          <SearchContextProvider> {/***/}
+          <SearchContextProvider> 
+          <ConfirmRemoveProductProvider>
           <CartContextProvider> {/***/}
             <Component {...pageProps} />
           </CartContextProvider>
+          </ConfirmRemoveProductProvider>
           </SearchContextProvider>
           </PaginationContextProvider>
         </QueryClientProvider>
