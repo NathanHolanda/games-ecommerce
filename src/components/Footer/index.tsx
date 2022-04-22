@@ -8,14 +8,14 @@ function Footer(){
           position="absolute"
           bottom={0}
           w="100%"
-          p="4"
+          p={["2", "2", "4"]}
           mt="8"
           maxWidth={1200}
           textAlign="center"
           borderTop="1px solid"
           borderColor="blue.600"
         >
-            <Text fontSize="md" fontWeight="500">
+            <Text fontSize={["sm", "md"]} fontWeight="500">
                 Jogador Karo &copy; { new Date().getFullYear() }
             </Text>
             <Text fontSize="xs" color="gray.500">

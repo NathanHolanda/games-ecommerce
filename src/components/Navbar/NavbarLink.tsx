@@ -32,7 +32,7 @@ function NavbarLink({ icon, link, text }: LinkProps){
                     fontSize="xl"
                 >
                     <Icon as={icon} mr="1" color="yellow.400"/>
-                    <Text fontWeight="500" color={isCurrent ? "yellow.400" : ""}>{text}</Text>
+                    <Text display={["none", "block"]} fontWeight="500" color={isCurrent ? "yellow.400" : ""}>{text}</Text>
                 </Flex>
             </ChakraLink>
         </Link>

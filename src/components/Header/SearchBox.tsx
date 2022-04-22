@@ -14,7 +14,7 @@ function SearchBox(){
     }, [router])
 
     return (
-        <Flex align="center">
+        <Flex align="center" display={["none", "none", "flex"]}>
             <Input
                 id="search-box"
                 placeholder="Buscar por um produto..."

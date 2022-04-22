@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Flex, Icon, IconButton, Text } from "@chakra-ui/react";
+import { Avatar, Box, Button, Flex, Icon, IconButton, Text, useBreakpointValue } from "@chakra-ui/react";
 import { BsGithub } from "react-icons/bs"
 import { useSession, signIn, signOut } from "next-auth/react"
 import { BiLogOutCircle } from "react-icons/bi";
@@ -6,10 +6,11 @@ import { BiLogOutCircle } from "react-icons/bi";
 
 function Profile(){
     const { data: session } = useSession()
+    const avatarSize = useBreakpointValue({base: "sm", sm: "md"})
     
     return session?.user ? (
         <Flex>
-            <Box mr="2">
+            <Box mr="2" display={["none", "none", "none", "block"]}>
                 <Text fontSize="md" fontWeight="500">
                     { session.user.name }
                     <IconButton
@@ -35,6 +36,8 @@ function Profile(){
                 name={ session.user.name || "" }
                 title={ session.user.name || "" }
                 src={ session.user.image || "" }
+                mt={["1", 0]}
+                size={avatarSize}
             />
             
         </Flex>

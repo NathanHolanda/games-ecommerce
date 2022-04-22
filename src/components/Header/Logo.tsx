@@ -30,7 +30,7 @@ function Logo(){
                     direction="column"
                     align="center"
                     fontFamily="'Press Start 2P', cursive"
-                    fontSize="2xl"
+                    fontSize={["md", "2xl"]}
                     userSelect="none"
                     cursor="pointer"
                 >
