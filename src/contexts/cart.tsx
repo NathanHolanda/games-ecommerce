@@ -18,6 +18,7 @@ interface Cart{
     products: Product[],
     handleChangeCart: (product: Product) => void,
     handleRemoveProduct: (id: number) => void
+    handleClearCart: (email: string) => void
 }
 
 interface CartStorage{
@@ -62,9 +63,6 @@ function CartContextProvider({ children }: CartContextProviderProps){
             item => item.client === email
         )
         if( !hasClient ) cart.push({ client: email, products: [] })
-
-        /* const newItem = products.length > 0 ? 
-        { client: email, products } : null */
 
         const newCart = JSON.stringify(
             cart.map(item => {
@@ -127,11 +125,29 @@ function CartContextProvider({ children }: CartContextProviderProps){
         setLocalStorageProducts(sessionEmail, [])
     }
 
+    function handleClearCart(email: string){
+        const cart: CartStorage[] = JSON.parse(
+            localStorage.getItem("cart") || "[]"
+        )
+
+        cart.forEach((item, index, arr) => {
+            if(item.client === email){
+                arr.splice(index, 1)
+            }
+        })
+        
+        const newCart = JSON.stringify(cart)
+
+        setProducts([])
+        localStorage.setItem("cart", newCart)
+    }
+
     return (
         <Context.Provider value={{
             products,
             handleChangeCart,
-            handleRemoveProduct
+            handleRemoveProduct,
+            handleClearCart
         }}>
             { children }
         </Context.Provider>
