@@ -1,8 +1,7 @@
 import { FormControl, FormErrorMessage, Input } from "@chakra-ui/react"
-import { MaskElement } from "imask"
-import { IMaskMixin } from "react-imask"
-import { ReactMixinComponent } from "react-imask/dist/mixin"
+import { useState } from "react"
 import { useFormFields } from "./contexts/formFields"
+import { maskInput } from "./libs/mask"
 
 interface FormInputProps{
     placeholder: string
@@ -13,6 +12,9 @@ interface FormInputProps{
 function FormInput({ placeholder, name, type } : FormInputProps) {
     const { register, formState } = useFormFields()
     const error = formState.errors[name]
+    const [ value, setValue ] = useState("")
+    const nonMasked = [ "name", "email", "cardName" ]
+    const isNonMasked = nonMasked.includes(name)
 
     return (
         <FormControl isInvalid={!!error}>
@@ -25,6 +27,37 @@ function FormInput({ placeholder, name, type } : FormInputProps) {
               focusBorderColor="yellow.700"
               borderColor={
                 error ? "red.500" : "yellow.400"
+              }
+              _hover={{ borderColor: "yellow.400" }}
+              value={ value }
+              onChange={
+                isNonMasked ?
+                e => {
+                  setValue(e.target.value)
+                } :
+                e => {
+                  const input = e.target.value
+                  const diffSize = value.length - input.length
+
+                  console.table({input, value, diffSize})
+                  if(diffSize >= 1) {
+                    const valueArr = value.split("")
+                    valueArr.splice(-diffSize, diffSize)
+
+                    setValue(valueArr.join(""))
+                  }
+                }
+              }
+              onKeyDown={
+                isNonMasked ?
+                () => {} :
+                e => {
+                  const typed = e.key
+                  const text = value + typed
+                  
+                  const input = maskInput(name, text)
+                  setValue(input)
+                }
               }
             />
             { error && <FormErrorMessage>{ error.message }</FormErrorMessage> }
