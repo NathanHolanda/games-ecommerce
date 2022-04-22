@@ -1,9 +1,25 @@
-import { Box, Link as ChakraLink, Text, Flex } from "@chakra-ui/react"
+import { Box, Link as ChakraLink, Text, Flex, useToast } from "@chakra-ui/react"
 import Link from "next/link"
 import Head from "next/head"
 import { Layout } from "../components/Layout"
+import { useEffect } from "react"
+import { useRouter } from "next/router"
 
 function Home(){
+  const { query: {success} } = useRouter()
+  const toast = useToast()
+  useEffect(() => {
+    if(success)
+    toast({
+      position: 'top-right',
+      title: 'Compra efetuada!',
+      description: "Entraremos em contato com a confirmação do seu pedido.",
+      status: 'success',
+      duration: 10000,
+      isClosable: true,
+    })
+  }, [])
+
   return (
     <>
       <Head>
