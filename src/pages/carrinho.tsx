@@ -13,12 +13,13 @@ import { useRouter } from "next/router";
 function Cart(){
     const { status } = useSession()
     const { push } = useRouter()
+    const { products } = useCart()
+    const { isOpen, onOpen, onClose } = useDisclosure()
+
     useEffect(() => {
         if(status !== "authenticated") push("/")
     }, [])
 
-    const { products } = useCart()
-    const { isOpen, onOpen, onClose } = useDisclosure()
     const total = products
         .reduce(
             (accum, product) => accum + (product.totalPrice || 0)

@@ -19,7 +19,7 @@ function Products({ products }: ProductsProps) {
     return (
         <SimpleGrid
             columns={4}
-            spacing={10}
+            spacing={[2, 4, 6, 8, 10]}
         >
         {     
             products.map(product => {

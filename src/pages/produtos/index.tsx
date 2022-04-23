@@ -19,9 +19,8 @@ function Products(){
             <Layout>
                 <Stack
                   as="main"
-                  mb="4"
-                  spacing="10"
-                  h={600}
+                  spacing={["4", "6", "8", "10"]}
+                  h={[400, 500, 600]}
                   display="flex"
                   justify="center"
                 >

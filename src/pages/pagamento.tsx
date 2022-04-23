@@ -10,11 +10,12 @@ import { useCart } from "../contexts/cart"
 function Payment(){
     const { status } = useSession()
     const { push } = useRouter()
+    const { products } = useCart()
+
     useEffect(() => {
         if(status !== "authenticated") push("/")
     }, [])
 
-    const { products } = useCart()
     const total = products
         .reduce((accum, product) => accum + (product.totalPrice || 0), 0)
     const totalMoney = Intl.NumberFormat("pt-BR", {

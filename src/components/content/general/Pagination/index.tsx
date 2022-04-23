@@ -34,10 +34,9 @@ function Pagination({
         <Stack
           align="center"
           justify='space-between'
-          mt='8'
           spacing='2'
         >
-            <HStack spacing="2">
+            <HStack spacing={["1", "1", "2"]}>
                 { currentPage > 1 && <Button number={1} onPageChange={onPageChange} /> }
 
                 { currentPage > 2 && <CurrentPageSiblings type="left" currentPage={currentPage} quantity={siblings} /> }
@@ -48,7 +47,7 @@ function Pagination({
 
                 { currentPage < lastPage && <Button number={lastPage} onPageChange={onPageChange} /> }
             </HStack>
-            <Box fontSize="sm">
+            <Box fontSize={["xs", "xs", "sm"]}>
                 <Text>{firstPageItem} à {lastPageItem} de {totalItems} resultados</Text>
             </Box>
         </Stack>

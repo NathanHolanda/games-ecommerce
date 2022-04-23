@@ -48,7 +48,7 @@ function Profile(){
             border="2px solid"
             borderColor= "yellow.400"
             color= "yellow.400"
-            py={5}
+            p={[3, 5]}
             _hover={{
                 borderColor: "yellow.100",
                 color: "yellow.100"
@@ -56,10 +56,10 @@ function Profile(){
             borderRadius={20}
             onClick={() => signIn("github")}
         >
-            <Box mr="2">
-                <Text fontSize="lg">Faça login com o GitHub</Text>
+            <Box mr={["0", "0", "0", "2"]}>
+                <Text display={["none", "none", "none", "block"]} fontSize="lg">Faça login com o GitHub</Text>
             </Box>
-            <Icon fontSize="3xl" as={BsGithub} />
+            <Icon fontSize={["xl", "3xl"]} as={BsGithub} />
         </Button>
     )
 }

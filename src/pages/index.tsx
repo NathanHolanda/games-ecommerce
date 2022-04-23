@@ -8,6 +8,7 @@ import { useRouter } from "next/router"
 function Home(){
   const { query: {success} } = useRouter()
   const toast = useToast()
+  
   useEffect(() => {
     if(success)
     toast({
@@ -34,8 +35,8 @@ function Home(){
           mb="4"
           textAlign="center"
         >
-          <Box fontSize="xl">
-            <Text>Seja bem-vindo(a) à loja online da Jogador Karo! <Text as="span" fontSize="4xl">🎮</Text></Text>
+          <Box fontSize={["md", "xl"]}>
+            <Text>Seja bem-vindo(a) à loja online da Jogador Karo! <Text as="span" fontSize={["2xl", "4xl"]}>🎮</Text></Text>
             <Text mt="2">Aqui você pode encontrar os melhores jogos  eletrônicos pelos menores preços.</Text>
           </Box>
 
@@ -44,7 +45,7 @@ function Home(){
               <Text
                 mt="4"
                 fontFamily="'Press Start 2P', cursive"
-                fontSize="4xl"
+                fontSize={["2xl", "4xl"]}
                 transition= "0.2s"
                 _hover={{
                   color: "yellow.300",

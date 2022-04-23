@@ -19,9 +19,7 @@ interface Product{
 function Product(){
     const [ product, setProduct ] = useState<Product>()
     const [ error, setError ] = useState<boolean>(false)
-
-    const router = useRouter()
-    const { id } = router.query
+    const { query: { id }, push } = useRouter()
 
     const getProduct = () => {
         api.get(`products/${id}`)
@@ -33,7 +31,7 @@ function Product(){
     const redirectOnGetProductError = () => {
         setTimeout(() => {
             if(error)
-                router.push("/produtos")
+                push("/produtos")
         }
     , 2000)}
 
