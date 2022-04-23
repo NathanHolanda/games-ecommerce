@@ -13,7 +13,7 @@ function Loading() {
             w="100%"
             textAlign="center"
         >
-            <Text fontSize="3xl" animation={loadingAnimation}>Carregando...</Text>
+            <Text fontSize={["lg", "xl", "3xl"]} animation={loadingAnimation}>Carregando...</Text>
         </Box>
     )
 }

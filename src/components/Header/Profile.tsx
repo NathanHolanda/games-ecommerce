@@ -32,6 +32,7 @@ function Profile(){
                     { session.user.email }
                 </Text>
             </Box>
+            
             <Avatar
                 name={ session.user.name || "" }
                 title={ session.user.name || "" }
@@ -39,7 +40,18 @@ function Profile(){
                 mt={["1", 0]}
                 size={avatarSize}
             />
-            
+            <IconButton
+                display={["block", "block", "block", "none"]}
+                fontSize={["sm", "md"]}
+                icon={<BiLogOutCircle/>}
+                aria-label="Sair"
+                colorScheme="transparent"
+                p="0"
+                mt={["4", "7"]}
+                h="5"
+                minW="5"
+                onClick={() => signOut()}
+            />
         </Flex>
     ) : (
         <Button 

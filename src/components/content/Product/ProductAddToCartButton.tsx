@@ -48,9 +48,9 @@ function ProductAddToCartButton({ product, quantity }: ProductAddToCartButtonPro
                 <IconButton
                     colorScheme="yellow"
                     aria-label="Adicionar ao carrinho"
-                    fontSize="4xl"
-                    mt="6"
-                    p="6"
+                    fontSize={["2xl", "2xl", "4xl"]}
+                    mt={["2", "4", "6"]}
+                    p={["2 3", "4 4", "6"]}
                     icon={<BsCartPlus/>}
                     onClick={ addToCart }
                 />
@@ -58,14 +58,14 @@ function ProductAddToCartButton({ product, quantity }: ProductAddToCartButtonPro
             <PopoverContent
                 bg="gray.600"
                 color="gray.200"
-                w={120}
+                w={[90, 120]}
                 ml="1"
-                borderRadius={10}
+                borderRadius={[7, 10]}
                 borderColor="gray.600"
             >
                 <PopoverArrow bg="gray.600"/>
                 <PopoverBody p="2">
-                    <Text fontSize="md" fontWeight="500">{
+                    <Text fontSize={["sm", "md"]} fontWeight="500">{
                         status === "authenticated" ?
                         "Adicionado ao carrinho" :
                         "Faça login para comprar"

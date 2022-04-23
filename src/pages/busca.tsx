@@ -61,10 +61,10 @@ function Search(){
                     {
                         searched === "" ? 
                         <Box textAlign="center">
-                            <Text fontSize="2xl">Procure por algum produto na nossa loja 🧐</Text>
+                            <Text fontSize={["lg", "xl", "3xl"]}>Procure por algum produto na nossa loja 🧐</Text>
                         </Box> : notFound ? 
                         <Box textAlign="center">
-                            <Text fontSize="2xl">Desculpe, não encontramos nenhum produto com esse nome 🥺</Text>
+                            <Text fontSize={["lg", "xl", "3xl"]}>Desculpe, não encontramos nenhum produto com esse nome 🥺</Text>
                         </Box> : products.length > 0 ?                         
                         <>
                             <Products products={products}/>

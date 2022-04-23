@@ -5,7 +5,7 @@ function ProductError() {
         <Box
             w="100%"
             textAlign="center"
-            fontSize="3xl"
+            fontSize={["lg", "xl", "3xl"]}
         >
             <Text>Erro ao carregar produto! 😢</Text>
             <Text>Redirecionando...</Text>

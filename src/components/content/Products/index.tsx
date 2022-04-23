@@ -19,7 +19,7 @@ function Products({ products }: ProductsProps) {
     return (
         <SimpleGrid
             columns={4}
-            spacing={[2, 4, 6, 8, 10]}
+            spacing={[2, 4, 6, 8]}
         >
         {     
             products.map(product => {
@@ -38,7 +38,7 @@ function Products({ products }: ProductsProps) {
                             py="4"
                             px="4"
                             maxH={500}
-                            borderRadius={5}
+                            borderRadius={[3, 4, 4, 5]}
                             cursor="pointer"
                             transition="transform 0.2s"
                             _hover={{

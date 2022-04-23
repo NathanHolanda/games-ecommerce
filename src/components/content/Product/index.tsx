@@ -24,20 +24,22 @@ function Product({ product }: ProductProps){
         <Flex
             direction="column"
             align="center"
+            justify="center"
             backgroundColor="gray.800"
             m="0 auto"
-            py="6"
+            py={["2", "6"]}
             px="2"
-            boxSize="lg"
+            boxSize={["md", "lg"]}
             borderRadius={5}
             transition="transform 0.2s"
-            maxW={350}
+            w={[250, 350]}
+            maxH={[400, 600]}
         >
                 <ProductImage name={product.name} image={product.image}/>
 
                 <Box mt="4">
                     <Text
-                        fontSize="xl"
+                        fontSize={["md", "lg", "xl"]}
                         color="yellow.400"
                         fontWeight="500"
                     >{product.name}</Text>

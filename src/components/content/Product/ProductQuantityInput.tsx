@@ -1,4 +1,4 @@
-import { NumberInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper } from "@chakra-ui/react"
+import { NumberInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, useBreakpointValue } from "@chakra-ui/react"
 import { SetStateAction } from "react"
 
 interface ProductQuantityInputProps{
@@ -7,11 +7,14 @@ interface ProductQuantityInputProps{
 }
 
 function ProductQuantityInput({ quantity, setQuantity }: ProductQuantityInputProps) {
+    const inputSize = useBreakpointValue({base: "xs", md: "xs"})
+
     return (
         <NumberInput
-            size='sm'
-            maxW={16}
+            size={inputSize}
+            maxW={[14,16]}
             defaultValue={1}
+            fontSize={["xs", "md"]}
             min={1}
             value={quantity}
             onChange={value => setQuantity(Number(value))}
@@ -20,7 +23,7 @@ function ProductQuantityInput({ quantity, setQuantity }: ProductQuantityInputPro
                 backgroundColor="gray.600"
                 color="gray.200"
                 borderColor="gray.500"
-                h="32px"
+                h={["24px","32px"]}
             />
             <NumberInputStepper borderColor="gray.500" color="gray.200">
                 <NumberIncrementStepper
@@ -28,7 +31,7 @@ function ProductQuantityInput({ quantity, setQuantity }: ProductQuantityInputPro
                     _active={{ bg: "green.800" }}
                     children="+"
                     fontSize="md"
-                    h={15}
+                    h={["8px", 15]}
                     borderColor="gray.500"
                 />
                 <NumberDecrementStepper
@@ -36,7 +39,7 @@ function ProductQuantityInput({ quantity, setQuantity }: ProductQuantityInputPro
                     _active={{ bg: "red.800" }}
                     children="-"
                     fontSize="md"
-                    h={15}
+                    h={["8px", 15]}
                     borderColor="gray.500"
                 />
             </NumberInputStepper>
