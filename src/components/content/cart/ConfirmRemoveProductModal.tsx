@@ -19,6 +19,7 @@ function ConfirmRemoveProductModal({ isOpen, onClose }: ConfirmRemoveProductModa
             <ModalContent
                 backgroundColor="gray.700"
                 top="30%"
+                mx="2"
             >
                 <ModalHeader mb="4">
                     <IconButton
@@ -34,7 +35,7 @@ function ConfirmRemoveProductModal({ isOpen, onClose }: ConfirmRemoveProductModa
                     ></IconButton>
                 </ModalHeader>
 
-                <ModalBody fontSize="xl" mb="4">
+                <ModalBody fontSize={["lg","xl"]} mb="4">
                     <Text>Você quer realmente excluir este produto do seu carrinho?</Text>
                 </ModalBody>
 

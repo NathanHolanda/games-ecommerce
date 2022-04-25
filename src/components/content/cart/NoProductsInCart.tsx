@@ -7,21 +7,21 @@ function NoProductsInCart(){
 
     return (
         <Box textAlign="center">
-            <Text fontSize="2xl">Ainda não há nenhum item no seu carrinho...</Text>
+            <Text fontSize={["lg", "xl", "3xl"]}>Ainda não há nenhum item no seu carrinho...</Text>
             {
                 [...Array(4)].map((_, i) => (
                     <Icon
                         key={i}
                         as={FaGhost}
-                        fontSize="4xl"
-                        mt="2"
+                        fontSize={["xl", "2xl", "4xl"]}
+                        mt={["1","2"]}
                         color={pacmanGhostsColors[i]}
                     />
                 ))
             }
             <Box>
                 <Link href="/produtos">
-                    <Button mt="6" colorScheme="yellow" fontSize="lg">Bora olhar a loja!</Button>
+                    <Button mt={["2","4","6"]} colorScheme="yellow" fontSize={["md","lg"]}>Bora olhar a loja!</Button>
                 </Link>
             </Box>
         </Box>

@@ -15,17 +15,17 @@ function PaymentButton({ total }: PaymentButtonProps) {
         <Flex
             justify="right"
             align="center"
-            mb="6"
+            mb={["4","6"]}
         >
             <Text
-                fontSize="xl"
+                fontSize={["sm","md","lg","xl"]}
                 fontWeight="500"
-                mr="6"
+                mr={["2","4","6"]}
             >
                 Total: {totalPrice}
             </Text>
             <Link href="/pagamento">
-                <Button colorScheme="yellow">Finalizar compra</Button>
+                <Button colorScheme="yellow" fontSize={["sm","md","lg"]}>Finalizar compra</Button>
             </Link>
         </Flex>
     )
