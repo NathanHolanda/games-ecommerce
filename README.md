@@ -1,34 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Gaming E-commerce
 
-## Getting Started
+🇧🇷 <br>
+Esse projeto consiste em uma interface básica de um e-commerce de jogos eletrônicos. As principais ferramentas e bibliotecas utilizadas são React.js com Next.js, Chakra UI e Typescript. Também utilizei Mirage JS para simular a interação com uma aplicação back-end. Essa biblioteca é uma dependência de desenvolvimento, então esse projeto foi feito como demonstração e deve rodar apenas em ambiente de desenvolvimento.
+Para servir localmente o projeto, use os comandos abaixo e abra [http://localhost:3000](http://localhost:3000) no navegador.
 
-First, run the development server:
+🇺🇸 <br>
+This project consists of a basic gamming e-commerce interface. The main used tools and libraries are React.js with Next.js, Chakra UI and Typescript. I've also used Mirage JS to simulate an interaction with a back-end application. This library is a development dependency, then this project was made as a demonstration and it should run only in development environment.
+To serve the project locally, use the commands below and open [http://localhost:3000](http://localhost:3000) on the browser.
+
+🇪🇸 <br>
+Ese proyecto consiste en una interfaz basica de un e-commerce de juegos eletrónicos. Las principales herramientas y bibliotecas utlizadas son React.js con Next.js, Chakra UI y Typescript. También he utilizado Mirage JS para simular la interación con una aplicación back-end. Esa biblioteca es una dependencia de desarollo, entonces ese proyecto fue hecho como demonstración y debe ser ejecutado solamente en ambiente de desarollo.
+Para servir localmente el proyecto, use los comandos abajo y abra [http://localhost:3000](http://localhost:3000) en el navegador.
+
+```bash
+npm i
+# or
+yarn
+```
 
 ```bash
 npm run dev
 # or
 yarn dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
