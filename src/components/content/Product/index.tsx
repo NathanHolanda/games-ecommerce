@@ -30,7 +30,7 @@ function Product({ product }: ProductProps){
             py={["2", "6"]}
             px="2"
             boxSize={["md", "lg"]}
-            borderRadius={5}
+            borderRadius={[3,5]}
             transition="transform 0.2s"
             w={[250, 350]}
             maxH={[400, 600]}

@@ -47,16 +47,14 @@ function PaymentForm(){
         const email = session?.user?.email || ""
         handleClearCart(email)
 
-        console.log(data)
-
         push("/?success=1")
     }
 
     return (
         <FormFieldsContextProvider value={{register, formState}}>
             <Box as="form" w="100%" onSubmit={handleSubmit(onSubmit)}>
-                <Text fontSize="2xl" fontWeight="500" mb="2">Dados do cliente</Text>
-                <SimpleGrid mb="10" columns={3} spacing="5">
+                <Text fontSize={["lg","xl","2xl"]} fontWeight="500" mb="2">Dados do cliente</Text>
+                <SimpleGrid mb="10" columns={[2,2,3]} spacing="5">
                     <FormInput placeholder="Nome completo" name="name" type="text" />
                     
                     <FormInput placeholder="E-mail" name="email" type="email" />
@@ -64,8 +62,8 @@ function PaymentForm(){
                     <FormInput placeholder="CPF" name="cpf" type="text" />
                 </SimpleGrid>
 
-                <Text fontSize="2xl" fontWeight="500" mb="2">Dados do pagamento</Text>
-                <SimpleGrid columns={3} spacing="5">
+                <Text fontSize={["lg","xl","2xl"]} fontWeight="500" mb="2">Dados do pagamento</Text>
+                <SimpleGrid columns={[2,2,3]} spacing="5">
                     <FormInput placeholder="Número do cartão" name="cardNumber" type="text" />
 
                     <FormSelect items={ cardBrands } placeholder="Selecione a bandeira" name="cardBrand" />
@@ -80,7 +78,12 @@ function PaymentForm(){
                 </SimpleGrid>
 
                 <Box textAlign="center">
-                    <Button type="submit" mt="10" colorScheme="yellow">Confirmar compra</Button>
+                    <Button
+                      type="submit"
+                      mt={["6","8","10"]}
+                      colorScheme="yellow"
+                      fontSize={["md", "lg"]}
+                    >Confirmar compra</Button>
                 </Box>
             </Box>
         </FormFieldsContextProvider>

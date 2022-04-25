@@ -36,8 +36,8 @@ function maskInput(type: string, value: string) {
 
       if (cleanedValue.length >= 3) {
         if (cleanedValue[2].match(/\d/)) {
-          const number = cleanedValue.slice(2)
-          cleanedValue.splice(2, 1, "/")
+          const number = cleanedValue.slice(2, cleanedValue.length)
+          cleanedValue.splice(2, cleanedValue.length - 2, "/")
           cleanedValue.push(...number)
         }
       }
@@ -99,24 +99,25 @@ function maskInput(type: string, value: string) {
 
       if (cleanedValue.length >= 4) {
         if (cleanedValue[3].match(/\d/)) {
-          const number = cleanedValue.slice(3)
-          cleanedValue.splice(3, 1, ".")
+          const number = cleanedValue.slice(3, cleanedValue.length)
+          
+          cleanedValue.splice(3, cleanedValue.length - 3, ".")
           cleanedValue.push(...number)
         }
       }
 
       if (cleanedValue.length >= 8) {
         if (cleanedValue[7].match(/\d/)) {
-          const number = cleanedValue.slice(7)
-          cleanedValue.splice(7, 1, ".")
+          const number = cleanedValue.slice(7, cleanedValue.length)
+          cleanedValue.splice(7, cleanedValue.length - 7, ".")
           cleanedValue.push(...number)
         }
       }
 
       if (cleanedValue.length >= 12) {
         if (cleanedValue[11].match(/\d/)) {
-          const number = cleanedValue.slice(11)
-          cleanedValue.splice(11, 1, "-")
+          const number = cleanedValue.slice(11, cleanedValue.length)
+          cleanedValue.splice(11, cleanedValue.length - 11, "-")
           cleanedValue.push(...number)
         }
       }
@@ -177,24 +178,24 @@ function maskInput(type: string, value: string) {
 
       if (cleanedValue.length >= 5) {
         if (cleanedValue[4].match(/\d/)) {
-          const number = cleanedValue.slice(4)
-          cleanedValue.splice(4, 1, " ")
+          const number = cleanedValue.slice(4, cleanedValue.length)
+          cleanedValue.splice(4, cleanedValue.length - 4, " ")
           cleanedValue.push(...number)
         }
       }
 
       if (cleanedValue.length >= 10) {
         if (cleanedValue[9].match(/\d/)) {
-          const number = cleanedValue.slice(9)
-          cleanedValue.splice(9, 1, " ")
+          const number = cleanedValue.slice(9, cleanedValue.length)
+          cleanedValue.splice(9, cleanedValue.length - 9, " ")
           cleanedValue.push(...number)
         }
       }
 
       if (cleanedValue.length >= 15) {
         if (cleanedValue[14].match(/\d/)) {
-          const number = cleanedValue.slice(14)
-          cleanedValue.splice(14, 1, " ")
+          const number = cleanedValue.slice(14, cleanedValue.length)
+          cleanedValue.splice(14, cleanedValue.length - 14, " ")
           cleanedValue.push(...number)
         }
       }

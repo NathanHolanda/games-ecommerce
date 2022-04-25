@@ -14,13 +14,14 @@ function ProductCards({ onOpen }: ProductsCardsProps){
 
     return (
         <SimpleGrid
-            spacing="10"
+            spacing="5"
             columns={2}
-            overflowY="auto"
+            maxH={500}
         >
             {
                 products.map(product => (
                     <Flex
+                        position="relative"
                         p="4"
                         align="center"
                         justify="flex-start"

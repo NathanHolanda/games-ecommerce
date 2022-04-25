@@ -31,7 +31,7 @@ function Cart(){
                 <title>Jogador Karo | Carrinho</title>
             </Head>
             <Layout>
-                <Box as="main" mb="4">
+                <Box as="main" >
                     <Flex
                         h={500}
                         display="flex"

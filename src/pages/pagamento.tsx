@@ -33,9 +33,9 @@ function Payment(){
                     <Box>
                         <Text
                           textAlign="right"
-                          fontSize="xl"
+                          fontSize={["md","lg","xl"]}
                           fontWeight="500"
-                          mb="8"
+                          mb={["6","8"]}
                         >
                             Valor total: { totalMoney }</Text>
                     </Box>

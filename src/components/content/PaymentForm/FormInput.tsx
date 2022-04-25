@@ -39,12 +39,20 @@ function FormInput({ placeholder, name, type } : FormInputProps) {
                   const input = e.target.value
                   const diffSize = value.length - input.length
 
-                  console.table({input, value, diffSize})
                   if(diffSize >= 1) {
                     const valueArr = value.split("")
                     valueArr.splice(-diffSize, diffSize)
 
                     setValue(valueArr.join(""))
+                  }
+
+                  if(
+                    diffSize <= -2 ||
+                    (diffSize === 0 && value !== input)
+                  ){
+                    console.log(input)
+                    const text = maskInput(name, input)
+                    setValue(text)
                   }
                 }
               }
@@ -59,6 +67,7 @@ function FormInput({ placeholder, name, type } : FormInputProps) {
                   setValue(input)
                 }
               }
+              fontSize={["sm", "md"]}
             />
             { error && <FormErrorMessage>{ error.message }</FormErrorMessage> }
         </FormControl>

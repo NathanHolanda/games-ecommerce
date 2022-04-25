@@ -14,20 +14,27 @@ function FormSelect({ items, placeholder, name }: FormSelectProps) {
     return (
         <FormControl>
             <Select
-            {...register(name)}
-            focusBorderColor="yellow.700"
-            borderColor={
-                error ? "red.500" : "yellow.400"
-            }
-            name={name}
-            required
+                {...register(name)}
+                focusBorderColor="yellow.700"
+                borderColor={
+                    error ? "red.500" : "yellow.400"
+                }
+                name={name}
+                required
+                fontSize={["sm", "md"]}
+                color="gray.400"
+                onChange={e => {
+                    if(e.target.value !== "")
+                        e.target.style.color = "#E2E8F0"
+                }}
+                _hover={{ borderColor: "yellow.400" }}
             >
                 <option value="" selected hidden disabled>{ placeholder }</option>	
                 {
                     items.map((item, i) => (
                         <option
                             value={ item }
-                            style={{ background: "#2D3748" }}
+                            style={{ background: "#2D3748", color: "#E2E8F0"}}
                             key={i}
                         >
                             { item }
